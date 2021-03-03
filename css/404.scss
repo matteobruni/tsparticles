@@ -1,0 +1,298 @@
+/* custom CSS files */
+@import url("https://fonts.googleapis.com/css?family=Share+Tech+Mono%7CSpace+Mono");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* ---------------particles 404 style---------------------- */
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+.container {
+  min-height: 100vh;
+  position: relative;
+  padding: 240px 0;
+  box-sizing: border-box;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.message {
+  text-align: center;
+  color: #000000;
+}
+
+.message-heading {
+  font-family: "Share Tech Mono";
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .7em;
+  font-size: 2rem;
+  padding: 0 0 0 1.4em;
+}
+
+.message-description {
+  font-family: "Space Mono";
+  line-height: 42px;
+  font-size: 15px;
+  letter-spacing: .15rem;
+  padding: 0 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.links {
+  max-width: 600px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+
+.links a {
+  width: 170px;
+  display: inline-block;
+  padding: 15px 0;
+  margin: 0 15px;
+  border: 1px solid #000000;
+  color: #000000;
+  text-decoration: none;
+  font-family: "Space Mono";
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: .1rem;
+  position: relative;
+}
+
+.links a:before {
+  content: '';
+  height: 42px;
+  background: #000000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  transition: all .3s;
+}
+
+.links a:after {
+  transition: all .3s;
+  z-index: 999;
+  position: relative;
+  content: "back to hompage";
+}
+
+.links a:hover:before {
+  width: 170px;
+}
+
+.links a:hover:after {
+  color: #ffffff;
+}
+
+.links a:nth-child(2) {
+  background: #ffffff;
+  color: #000000;
+}
+
+.links a:nth-child(2):before {
+  background: #212121;
+  left: 0;
+}
+
+.links a:nth-child(2):after {
+  content: "report error";
+}
+
+.links a:nth-child(2):hover:after {
+  color: #ffffff;
+}
+
+.social {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.social-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.social-list li {
+  display: inline-block;
+  margin: 5px 10px;
+}
+
+.social-list li a {
+  color: #000000;
+}
+
+@media (max-width: 480px) {
+  .message-heading {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .message-description {
+    font-size: .7rem;
+    line-height: 2rem;
+  }
+
+  .links a {
+    margin: 10px;
+    width: 280px;
+  }
+
+  .social {
+    left: 50%;
+    margin-left: -55px;
+  }
+}

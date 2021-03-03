@@ -1,0 +1,30 @@
+{
+  "version": "3.1.0",
+  "name": "email-addresses",
+  "description": "An email address parser based on rfc5322",
+  "keywords": [
+    "email address",
+    "parser",
+    "rfc5322",
+    "5322"
+  ],
+  "homepage": "https://github.com/jackbearheart/email-addresses",
+  "author": "Jack Bearheart <johnrbowman@fastmail.fm>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackbearheart/email-addresses.git"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib/email-addresses.js",
+  "devDependencies": {
+    "libxmljs": "~0.19.7",
+    "tap": "^14.8.2"
+  },
+  "scripts": {
+    "test": "tap ./test"
+  },
+  "license": "MIT",
+  "typings": "./lib/email-addresses.d.ts"
+}

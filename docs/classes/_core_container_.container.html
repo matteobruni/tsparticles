@@ -1,0 +1,1134 @@
+<!doctype html>
+<html class="particles no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Container
+	| tsParticles - v1.19.2</title>
+	<meta name="description" content="Documentation for tsParticles - v1.19.2">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div id="tsparticles"></div>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json"
+				data-base="..">
+				<div class="field">
+					<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+					<input id="tsd-search-field" type="text" />
+				</div>
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">tsParticles - v1.19.2</a>
+				<div class="tsd-links">
+					&emsp;<a href="https://particles.js.org" class="title">Official Website</a>
+					&emsp;<a href="https://github.com/matteobruni/tsparticles" class="title">Repository</a>
+				</div>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						<input type="checkbox" id="tsd-filter-only-exported" />
+						<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						<input type="checkbox" id="tsd-animations" checked />
+						<label class="tsd-widget" for="tsd-animations">Animations</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_core_container_.html">Core/Container</a>
+				</li>
+				<li>
+					<a href="_core_container_.container.html">Container</a>
+				</li>
+			</ul>
+			<h1>Class Container</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-3 col-menu col-menu-left menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Components</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/angular.html">Angular</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/react.html">React</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/vue2.html">Vue 2.x</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/vue3.html">Vue 3.x</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/svelte.html">Svelte</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/jquery.html">j<wbr>Query</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/preact.html">Preact</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/inferno.html">Inferno</a>
+					</li>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module tsd-is-external">
+						<a href="../modules/_core_container_.html">Core/<wbr>Container</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-6 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The object loaded into an HTML element, it&#39;ll contain options loaded and all data to let everything working</p>
+						<a href="#particles-container" id="particles-container" style="color: inherit; text-decoration: none;">
+							<h1>Particles Container</h1>
+						</a>
+						<p>The <a href="_core_container_.container.html">Container</a> class is the manager of the entire tsParticles instance. If you get the result of <a href="_main_slim_.mainslim.html#load">tsParticles.load</a> the result it&#39;s this class, in the <a href="_main_slim_.mainslim.html#loadjson">tsParticles.loadJSON</a> is the <code>then</code> parameter.</p>
+						<p>Otherwise you can retrieve any loaded instance using <a href="_main_slim_.mainslim.html#dom">tsParticles.dom()</a> or <a href="_main_slim_.mainslim.html#domitem">tsParticles.domItem(index)</a>.</p>
+						<a href="#properties" id="properties" style="color: inherit; text-decoration: none;">
+							<h2>Properties</h2>
+						</a>
+						<p><a href="_core_container_.container.html#id">id</a>: the <a href="_core_container_.container.html">Container</a> id, normally is the related DOM element <a href="_core_container_.container.html#id">id</a> attribute. It&#39;s set by <a href="_main_slim_.mainslim.html#load">tsParticles.load()</a> and <a href="_main_slim_.mainslim.html#loadjson">tsParticles.loadJSON()</a>.</p>
+						<p><a href="_core_container_.container.html#options">options</a>: Where to find the current options loaded. Changing this options while playing can result in an unexpected behavior. A <a href="_core_container_.container.html#refresh">refresh()</a> after the change is the best thing to do.<br />
+						<a href="_core_container_.container.html#sourceoptions">sourceOptions</a>: The options used when the <a href="_core_container_.container.html">Container</a> was created, these options will be used only in the constructor.</p>
+						<p><a href="_core_container_.container.html#particles">particles</a>: The particles manager, you can add/remove particles from here.</p>
+						<a href="#methods" id="methods" style="color: inherit; text-decoration: none;">
+							<h2>Methods</h2>
+						</a>
+						<p><a href="_core_container_.container.html#play">play()</a>: Used to resume the animations, can be stopped using <a href="_core_container_.container.html#pause">pause()</a>.<br />
+						<a href="_core_container_.container.html#pause">pause()</a>: Used to pause the animations, can be restarted using <a href="_core_container_.container.html#play">play()</a>.</p>
+						<p><a href="_core_container_.container.html#destroy">destroy()</a>: Prepare the instance to destruction, you won&#39;t retrieve this instance anymore. Only if you have a variable set with it.</p>
+						<p><a href="_core_container_.container.html#exportimage">exportImage(callback, type?, quality?)</a>: Exports an image of the canvas (without the background property if set), type and quality are optional and are the image output type and quality.<br />
+						<a href="_core_container_.container.html#exportconfiguration">exportConfiguration()</a>: Exports the current configuration in JSON, returns a string</p>
+						<p><a href="_core_container_.container.html#start">start()</a>: Starts the container, it&#39;s different from <a href="_core_container_.container.html#play">play()</a>, this will reload everything.<br />
+							<a href="_core_container_.container.html#stop">stop()</a>: Stops the container, it&#39;s different from <a href="_core_container_.container.html#pause">pause()</a>, this will clean up what need to be reloaded.<br />
+						<a href="_core_container_.container.html#refresh">refresh()</a>: Restarts the container, just a <a href="_core_container_.container.html#stop">stop()</a>/<a href="_core_container_.container.html#start">start()</a> shortcut.</p>
+						<p><a href="_options_classes_options_.options.html#settheme">setTheme(name)</a>: Sets the specified theme reloading options, if name is <code>undefined</code> the default theme will be used (if set)</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Container</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#attract" class="tsd-kind-icon">attract</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#bubble" class="tsd-kind-icon">bubble</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#canvas" class="tsd-kind-icon">canvas</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#density" class="tsd-kind-icon">density</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#destroyed" class="tsd-kind-icon">destroyed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_core_container_.container.html#drawanimationframe" class="tsd-kind-icon">draw<wbr>Animation<wbr>Frame</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#drawer" class="tsd-kind-icon">drawer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#drawers" class="tsd-kind-icon">drawers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_core_container_.container.html#eventlisteners" class="tsd-kind-icon">event<wbr>Listeners</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_core_container_.container.html#firststart" class="tsd-kind-icon">first<wbr>Start</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#fpslimit" class="tsd-kind-icon">fps<wbr>Limit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#interactivity" class="tsd-kind-icon">interactivity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_core_container_.container.html#intersectionobserver" class="tsd-kind-icon">intersection<wbr>Observer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#lastframetime" class="tsd-kind-icon">last<wbr>Frame<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#noise" class="tsd-kind-icon">noise</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#options" class="tsd-kind-icon">options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#pagehidden" class="tsd-kind-icon">page<wbr>Hidden</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#particles" class="tsd-kind-icon">particles</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_core_container_.container.html#paused" class="tsd-kind-icon">paused</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#plugins" class="tsd-kind-icon">plugins</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#repulse" class="tsd-kind-icon">repulse</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#retina" class="tsd-kind-icon">retina</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#sourceoptions" class="tsd-kind-icon">source<wbr>Options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#started" class="tsd-kind-icon">started</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#destroy" class="tsd-kind-icon">destroy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#draw" class="tsd-kind-icon">draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#exportimage" class="tsd-kind-icon">export<wbr>Image</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#exportimg" class="tsd-kind-icon">export<wbr>Img</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#getanimationstatus" class="tsd-kind-icon">get<wbr>Animation<wbr>Status</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_core_container_.container.html#init" class="tsd-kind-icon">init</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_core_container_.container.html#intersectionmanager" class="tsd-kind-icon">intersection<wbr>Manager</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#loadtheme" class="tsd-kind-icon">load<wbr>Theme</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#pause" class="tsd-kind-icon">pause</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#play" class="tsd-kind-icon">play</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#refresh" class="tsd-kind-icon">refresh</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#setnoise" class="tsd-kind-icon">set<wbr>Noise</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_core_container_.container.html#stop" class="tsd-kind-icon">stop</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Container<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, sourceOptions<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span>, <span class="tsd-signature-symbol">...</span>presets<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_core_container_.container.html" class="tsd-signature-type">Container</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L81">Core/Container.ts:81</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This is the core class, create an instance to have a new working particles manager</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>id: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the id to identify this instance</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sourceOptions: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>the options to load</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>presets: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>all the presets to load with options</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_core_container_.container.html" class="tsd-signature-type">Container</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="attract" class="tsd-anchor"></a>
+					<h3>attract</h3>
+					<div class="tsd-signature tsd-kind-icon">attract<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_interfaces_iattract_.iattract.html" class="tsd-signature-type">IAttract</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L47">Core/Container.ts:47</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="bubble" class="tsd-anchor"></a>
+					<h3>bubble</h3>
+					<div class="tsd-signature tsd-kind-icon">bubble<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_interfaces_ibubble_.ibubble.html" class="tsd-signature-type">IBubble</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L45">Core/Container.ts:45</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="canvas" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> canvas</h3>
+					<div class="tsd-signature tsd-kind-icon">canvas<span class="tsd-signature-symbol">:</span> <a href="_core_canvas_.canvas.html" class="tsd-signature-type">Canvas</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L55">Core/Container.ts:55</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="density" class="tsd-anchor"></a>
+					<h3>density</h3>
+					<div class="tsd-signature tsd-kind-icon">density<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L40">Core/Container.ts:40</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="destroyed" class="tsd-anchor"></a>
+					<h3>destroyed</h3>
+					<div class="tsd-signature tsd-kind-icon">destroyed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L38">Core/Container.ts:38</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Check if the particles container is destroyed, if so it&#39;s not recommended using it</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="drawanimationframe" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagOptional">Optional</span> draw<wbr>Animation<wbr>Frame</h3>
+					<div class="tsd-signature tsd-kind-icon">draw<wbr>Animation<wbr>Frame<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L78">Core/Container.ts:78</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="drawer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> drawer</h3>
+					<div class="tsd-signature tsd-kind-icon">drawer<span class="tsd-signature-symbol">:</span> <a href="_core_framemanager_.framemanager.html" class="tsd-signature-type">FrameManager</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L62">Core/Container.ts:62</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="drawers" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> drawers</h3>
+					<div class="tsd-signature tsd-kind-icon">drawers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_core_interfaces_ishapedrawer_.ishapedrawer.html" class="tsd-signature-type">IShapeDrawer</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L67">Core/Container.ts:67</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>All the shape drawers used by the container</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="eventlisteners" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> event<wbr>Listeners</h3>
+					<div class="tsd-signature tsd-kind-icon">event<wbr>Listeners<span class="tsd-signature-symbol">:</span> <a href="_utils_eventlisteners_.eventlisteners.html" class="tsd-signature-type">EventListeners</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L80">Core/Container.ts:80</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="firststart" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> first<wbr>Start</h3>
+					<div class="tsd-signature tsd-kind-icon">first<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L77">Core/Container.ts:77</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="fpslimit" class="tsd-anchor"></a>
+					<h3>fps<wbr>Limit</h3>
+					<div class="tsd-signature tsd-kind-icon">fps<wbr>Limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L43">Core/Container.ts:43</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L91">Core/Container.ts:91</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the id to identify this instance</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="interactivity" class="tsd-anchor"></a>
+					<h3>interactivity</h3>
+					<div class="tsd-signature tsd-kind-icon">interactivity<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_interfaces_icontainerinteractivity_.icontainerinteractivity.html" class="tsd-signature-type">IContainerInteractivity</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L44">Core/Container.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="intersectionobserver" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> intersection<wbr>Observer</h3>
+					<div class="tsd-signature tsd-kind-icon">intersection<wbr>Observer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IntersectionObserver</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L81">Core/Container.ts:81</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="lastframetime" class="tsd-anchor"></a>
+					<h3>last<wbr>Frame<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>Frame<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L42">Core/Container.ts:42</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="noise" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> noise</h3>
+					<div class="tsd-signature tsd-kind-icon">noise<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_interfaces_inoise_.inoise.html" class="tsd-signature-type">INoise</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L74">Core/Container.ts:74</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="options" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> options</h3>
+					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="_options_classes_options_.options.html" class="tsd-signature-type">Options</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L52">Core/Container.ts:52</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The options used by the container, it&#39;s a full <a href="_options_classes_options_.options.html">Options</a> object</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="pagehidden" class="tsd-anchor"></a>
+					<h3>page<wbr>Hidden</h3>
+					<div class="tsd-signature tsd-kind-icon">page<wbr>Hidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L41">Core/Container.ts:41</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="particles" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> particles</h3>
+					<div class="tsd-signature tsd-kind-icon">particles<span class="tsd-signature-symbol">:</span> <a href="_core_particles_.particles.html" class="tsd-signature-type">Particles</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L60">Core/Container.ts:60</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The particles manager</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="paused" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> paused</h3>
+					<div class="tsd-signature tsd-kind-icon">paused<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L76">Core/Container.ts:76</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="plugins" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> plugins</h3>
+					<div class="tsd-signature tsd-kind-icon">plugins<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_core_interfaces_icontainerplugin_.icontainerplugin.html" class="tsd-signature-type">IContainerPlugin</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L72">Core/Container.ts:72</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>All the plugins used by the container</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="repulse" class="tsd-anchor"></a>
+					<h3>repulse</h3>
+					<div class="tsd-signature tsd-kind-icon">repulse<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_core_interfaces_irepulse_.irepulse.html" class="tsd-signature-type">IRepulse</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L46">Core/Container.ts:46</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="retina" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> retina</h3>
+					<div class="tsd-signature tsd-kind-icon">retina<span class="tsd-signature-symbol">:</span> <a href="_core_retina_.retina.html" class="tsd-signature-type">Retina</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L54">Core/Container.ts:54</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="sourceoptions" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> source<wbr>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">source<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L92">Core/Container.ts:92</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>the options to load</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="started" class="tsd-anchor"></a>
+					<h3>started</h3>
+					<div class="tsd-signature tsd-kind-icon">started<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L33">Core/Container.ts:33</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Check if the particles container is started</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="destroy" class="tsd-anchor"></a>
+					<h3>destroy</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L277">Core/Container.ts:277</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Destroys the current container, invalidating it</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="draw" class="tsd-anchor"></a>
+					<h3>draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">draw<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L222">Core/Container.ts:222</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draws a frame</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="exportconfiguration" class="tsd-anchor"></a>
+					<h3>export<wbr>Configuration</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">export<wbr>Configuration<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L317">Core/Container.ts:317</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Exports the current configuration using <code>options</code> property</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>a JSON string created from <code>options</code> property</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="exportimage" class="tsd-anchor"></a>
+					<h3>export<wbr>Image</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">export<wbr>Image<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BlobCallback</span>, type<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, quality<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L309">Core/Container.ts:309</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Exports the current canvas image, <code>background</code> property of <code>options</code> won&#39;t be rendered because it&#39;s css related</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <span class="tsd-signature-type">BlobCallback</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback to handle the image</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> type: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The exported image type</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> quality: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The exported image quality</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="exportimg" class="tsd-anchor"></a>
+					<h3>export<wbr>Img</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">export<wbr>Img<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">BlobCallback</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L299">Core/Container.ts:299</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd><p>this method is deprecated, please use the exportImage method</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <span class="tsd-signature-type">BlobCallback</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback to handle the image</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="getanimationstatus" class="tsd-anchor"></a>
+					<h3>get<wbr>Animation<wbr>Status</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Animation<wbr>Status<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L230">Core/Container.ts:230</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the animation status</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> is playing, <code>false</code> is paused</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="init" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> init</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L404">Core/Container.ts:404</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="intersectionmanager" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> intersection<wbr>Manager</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">intersection<wbr>Manager<span class="tsd-signature-symbol">(</span>entries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IntersectionObserverEntry</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L436">Core/Container.ts:436</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>entries: <span class="tsd-signature-type">IntersectionObserverEntry</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="loadtheme" class="tsd-anchor"></a>
+					<h3>load<wbr>Theme</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Theme<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L369">Core/Container.ts:369</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Loads the given theme, overriding the options</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> name: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the theme name, if <code>undefined</code> resets the default options or the default theme</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="pause" class="tsd-anchor"></a>
+					<h3>pause</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">pause<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L197">Core/Container.ts:197</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Pauses animations</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="play" class="tsd-anchor"></a>
+					<h3>play</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">play<span class="tsd-signature-symbol">(</span>force<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L169">Core/Container.ts:169</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Starts animations and resume from pause</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> force: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="refresh" class="tsd-anchor"></a>
+					<h3>refresh</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">refresh<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L324">Core/Container.ts:324</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Restarts the container, just a <a href="_core_container_.container.html#stop">stop</a>/<a href="_core_container_.container.html#start">start</a> alias</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="setnoise" class="tsd-anchor"></a>
+					<h3>set<wbr>Noise</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Noise<span class="tsd-signature-symbol">(</span>noiseOrGenerator<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_core_interfaces_inoise_.inoise.html" class="tsd-signature-type">INoise</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>particle<span class="tsd-signature-symbol">: </span><a href="_core_particle_.particle.html" class="tsd-signature-type">Particle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../interfaces/_core_interfaces_inoisevalue_.inoisevalue.html" class="tsd-signature-type">INoiseValue</a><span class="tsd-signature-symbol">)</span>, init<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span>, update<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L240">Core/Container.ts:240</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Customise noise generation</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> noiseOrGenerator: <a href="../interfaces/_core_interfaces_inoise_.inoise.html" class="tsd-signature-type">INoise</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>particle<span class="tsd-signature-symbol">: </span><a href="_core_particle_.particle.html" class="tsd-signature-type">Particle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="../interfaces/_core_interfaces_inoisevalue_.inoisevalue.html" class="tsd-signature-type">INoiseValue</a><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the <a href="../interfaces/_options_interfaces_particles_move_noise_inoise_.inoise.html">INoise</a> object or a function that generates a <a href="../interfaces/_core_interfaces_inoisevalue_.inoisevalue.html">INoiseValue</a> object from <a href="_core_particle_.particle.html">Particle</a></p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> init: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the <a href="../interfaces/_options_interfaces_particles_move_noise_inoise_.inoise.html">INoise</a> init function, if the first parameter is a generator function</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> update: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the <a href="../interfaces/_options_interfaces_particles_move_noise_inoise_.inoise.html">INoise</a> update function, if the first parameter is a generator function</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="start" class="tsd-anchor"></a>
+					<h3>start</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L378">Core/Container.ts:378</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Starts the container, initializes what are needed to create animations and event handling</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="stop" class="tsd-anchor"></a>
+					<h3>stop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Container.ts#L333">Core/Container.ts:333</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Stops the container, opposite to <code>start</code>. Clears some resources and stops events.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-3 col-menu col-menu-right menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="_core_container_.container.html" class="tsd-kind-icon">Container</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#attract" class="tsd-kind-icon">attract</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#bubble" class="tsd-kind-icon">bubble</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#canvas" class="tsd-kind-icon">canvas</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#density" class="tsd-kind-icon">density</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#destroyed" class="tsd-kind-icon">destroyed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_core_container_.container.html#drawanimationframe" class="tsd-kind-icon">draw<wbr>Animation<wbr>Frame</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#drawer" class="tsd-kind-icon">drawer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#drawers" class="tsd-kind-icon">drawers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_core_container_.container.html#eventlisteners" class="tsd-kind-icon">event<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_core_container_.container.html#firststart" class="tsd-kind-icon">first<wbr>Start</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#fpslimit" class="tsd-kind-icon">fps<wbr>Limit</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#interactivity" class="tsd-kind-icon">interactivity</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_core_container_.container.html#intersectionobserver" class="tsd-kind-icon">intersection<wbr>Observer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#lastframetime" class="tsd-kind-icon">last<wbr>Frame<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#noise" class="tsd-kind-icon">noise</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#options" class="tsd-kind-icon">options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#pagehidden" class="tsd-kind-icon">page<wbr>Hidden</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#particles" class="tsd-kind-icon">particles</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_core_container_.container.html#paused" class="tsd-kind-icon">paused</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#plugins" class="tsd-kind-icon">plugins</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#repulse" class="tsd-kind-icon">repulse</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#retina" class="tsd-kind-icon">retina</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#sourceoptions" class="tsd-kind-icon">source<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#started" class="tsd-kind-icon">started</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#destroy" class="tsd-kind-icon">destroy</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#draw" class="tsd-kind-icon">draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#exportconfiguration" class="tsd-kind-icon">export<wbr>Configuration</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#exportimage" class="tsd-kind-icon">export<wbr>Image</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#exportimg" class="tsd-kind-icon">export<wbr>Img</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#getanimationstatus" class="tsd-kind-icon">get<wbr>Animation<wbr>Status</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_core_container_.container.html#init" class="tsd-kind-icon">init</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_core_container_.container.html#intersectionmanager" class="tsd-kind-icon">intersection<wbr>Manager</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#loadtheme" class="tsd-kind-icon">load<wbr>Theme</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#pause" class="tsd-kind-icon">pause</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#play" class="tsd-kind-icon">play</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#refresh" class="tsd-kind-icon">refresh</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#setnoise" class="tsd-kind-icon">set<wbr>Noise</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#start" class="tsd-kind-icon">start</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_core_container_.container.html#stop" class="tsd-kind-icon">stop</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span
+				class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span
+				class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-161253125-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="https://particles.js.org/tsParticles-64.png" />
+    <meta name="description"
+        content="tsParticles - Easily create highly customizable particles animations and use them as animated backgrounds for your website. Ready to use components available for React, Vue.js (2.x and 3.x), Angular, Svelte, jQuery, Preact, Inferno." />
+    <meta name="author" content="Matteo Bruni" />
+    <meta name="keyword"
+        content="HTML, CSS, JavaScript, Particles, Particles.js, Animations, React, Vue, Angular, Vue.js, Svelte" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@HollowMatt_ITA" />
+    <meta name="twitter:image:src" content="https://particles.js.org/images/demo.png" />
+
+    <meta property="og:title" content="tsParticles - JavaScript Particles animations for your website" />
+    <meta property="og:site_name" content="tsParticles" />
+    <meta property="og:url" content="https://particles.js.org/" />
+    <meta property="og:description"
+        content="Easily create highly customizable particles animations and use them as animated backgrounds for your website. Ready to use components available for React, Vue.js (2.x and 3.x), Angular, Svelte, jQuery, Preact, Inferno." />
+    <meta property="og:image" content="https://particles.js.org/images/demo.png" />
+
+    <title>tsParticles | JavaScript Particles animations for your website</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"
+        integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.css"
+        integrity="sha256-thQmdfrg82/N5u9ybMxam1RKdSfaxOPCgl5q9AI/mDI=" crossorigin="anonymous">
+
+    <link href="../css/main.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161253125-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+
+        gtag("config", "UA-161253125-1", {
+            "custom_map": {
+                "dimension1": "dimension_codepen_data",
+                "dimension2": "dimension_editor_data",
+                "dimension3": "dimension_editor_error",
+                "dimension4": "dimension_editor_mode",
+                "dimension5": "dimension_particles_export_config",
+                "dimension6": "dimension_new_preset",
+                "dimension7": "dimension_old_preset",
+                "dimension8": "dimension_status",
+                "dimension9": "dimension_particles_options"
+            }
+        });
+
+        gtag("config", "AW-1021008757");
+        gtag("event", "conversion", { "send_to": "AW-1021008757/3t7QCNqulswBEPW27eYD" });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid m-0 p-0 vh-100">
+        <header class="d-md-none d-block">
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <img src="https://particles.js.org/images/tsParticles-60.png" width="30" height="30"
+                    class="d-inline-block align-top" alt="">
+                <a class="navbar-brand" href="#">tsParticles</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" id="btnNavUpdate" href="#">Reload Particles</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarPresetsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Presets
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarPresetsDropdown">
+                                <a class="dropdown-item preset-item" data-preset="background" href="#">Background
+                                    Mask</a>
+                                <a class="dropdown-item preset-item" data-preset="bubble" href="#">Bubble</a>
+                                <a class="dropdown-item preset-item" data-preset="chars" href="#">Chars</a>
+                                <a class="dropdown-item preset-item" data-preset="collisions" href="#">Collisions</a>
+                                <a class="dropdown-item preset-item" data-preset="connect" href="#">Connect</a>
+                                <a class="dropdown-item preset-item" data-preset="default" href="#">Default</a>
+                                <a class="dropdown-item preset-item" data-preset="divRepulse" href="#">Div Repulse</a>
+                                <a class="dropdown-item preset-item" data-preset="emitterAbsorber" href="#">Emitter and
+                                    Absorber</a>
+                                <a class="dropdown-item preset-item" data-preset="fontawesome" href="#">Font Awesome</a>
+                                <a class="dropdown-item preset-item" data-preset="growing" href="#">Growing
+                                    Particles</a>
+                                <a class="dropdown-item preset-item" data-preset="images" href="#">Multiple Images</a>
+                                <a class="dropdown-item preset-item" data-preset="nyancat2" href="#">Nyan Cat</a>
+                                <a class="dropdown-item preset-item" data-preset="parallax" href="#">Parallax</a>
+                                <a class="dropdown-item preset-item" data-preset="polygonMask" href="#">Polygon Mask</a>
+                                <a class="dropdown-item preset-item" data-preset="polygons" href="#">Polygon Shape</a>
+                                <a class="dropdown-item preset-item" data-preset="shadow" href="#">Shadow</a>
+                                <a class="dropdown-item preset-item" data-preset="slow" href="#">Slow on Hover</a>
+                                <a class="dropdown-item preset-item" data-preset="snow" href="#">Snow</a>
+                                <a class="dropdown-item preset-item" data-preset="trail" href="#">Trails</a>
+                                <a class="dropdown-item preset-item" data-preset="twinkle" href="#">Twinkle</a>
+                                <a class="dropdown-item preset-item" data-preset="vibrate" href="#">Vibrate</a>
+                                <a class="dropdown-item preset-item" data-preset="warp" href="#">Warp</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarSocialDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Share
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarSocialDropdown">
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://www.facebook.com/dialog/feed?app_id=508841200049663&amp;link=https://particles.js.org&amp;picture=https://particles.js.org/images/demo.png&amp;name=tsParticles&amp;description=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles&amp;redirect_uri=https://particles.js.org">Facebook</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://twitter.com/intent/tweet?text=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles&amp;url=https://particles.js.org&amp;hashtags=typescript,particles,html5,webdesign&amp;via=HollowMatt_ITA">Twitter</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://particles.js.org&amp;title=tsParticles&amp;summary=A%20lightweight%20TypeScript%20library%20for%20creating%20particles&amp;source=https://particles.js.org">LinkedIn</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://dev.to/new?prefill=---%5Cn%20title%3A%20tsParticles%5Cn%20published%3A%20false%5Cn%20tags%3A%20javascript%2C%20showdev%2C%20webdesign%2C%20github%5Cn%20---%5Cn%20%5Cn%20%5Cn%20%5Cn%20tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles%20https://particles.js.org%5Cn">Dev</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="http://www.pinterest.com/pin/create/button/?url=https://particles.js.org&amp;media=https://particles.js.org/images/demo.png&amp;description=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles%20https://particles.js.org"
+                                    data-pin-do="buttonPin" data-pin-config="above">Pinterest</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="mailto:steve@jobs.com?subject=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles&amp;body=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles%20https://particles.js.org">Email</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarOtherDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                More
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarOtherDropdown">
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://github.com/matteobruni/tsparticles">Find
+                                    me on GitHub</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://github.com/matteobruni/jquery-particles">jQuery Plugin</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://github.com/matteobruni/react-tsparticles">ReactJS Component</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://github.com/matteobruni/preact-particles">PreactJS Component</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://github.com/matteobruni/ng-particles">AngularJS
+                                    Component</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://github.com/matteobruni/particles.vue">VueJS Component</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://github.com/matteobruni/tsparticles/blob/main/README.md">README</a>
+                                <a class="dropdown-item" target="_blank"
+                                    href="https://github.com/matteobruni/tsparticles/wiki">Official Wiki</a>
+                                <a class="dropdown-item" target="_blank" href="/docs">API Documentation</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="nav-export-image" href="#">Export Image</a>
+                                <a class="dropdown-item" id="nav-export-config" href="#">Export Config</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="nav-toggle-stats" href="#">Toggle Stats</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" id="nav-codepen-export" href="#">Export to CodePen</a>
+                            </div>
+                            ˙
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="row m-0 h-100">
+            <div class="col-xxl-3 col-xl-4 col-md-5 p-0 d-md-block d-none p-0 h-100" id="sidebar"
+                style="overflow: auto; z-index: 100">
+                <div class="row m-0 p-1">
+                    <div class="col p-0">
+                        <div class="btn-group w-100">
+                            <div class="btn-group">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">Presets
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item preset-item" data-preset="absorbers" href="#">Absorbers</a>
+                                    <a class="dropdown-item preset-item" data-preset="background" href="#">Background
+                                        Mask</a>
+                                    <a class="dropdown-item preset-item" data-preset="big" href="#">Big Particles</a>
+                                    <a class="dropdown-item preset-item" data-preset="bubble" href="#">Bubble</a>
+                                    <a class="dropdown-item preset-item" data-preset="chars" href="#">Chars</a>
+                                    <a class="dropdown-item preset-item" data-preset="collisions"
+                                        href="#">Collisions</a>
+                                    <a class="dropdown-item preset-item" data-preset="connect" href="#">Connect</a>
+                                    <a class="dropdown-item preset-item" data-preset="default" href="#">Default</a>
+                                    <a class="dropdown-item preset-item" data-preset="divRepulse" href="#">Div
+                                        Repulse</a>
+                                    <a class="dropdown-item preset-item" data-preset="emitterAbsorber" href="#">Emitter
+                                        and
+                                        Absorber</a>
+                                    <a class="dropdown-item preset-item" data-preset="emitters" href="#">Emitters</a>
+                                    <a class="dropdown-item preset-item" data-preset="fontawesome" href="#">Font
+                                        Awesome</a>
+                                    <a class="dropdown-item preset-item" data-preset="growing" href="#">Growing
+                                        Particles</a>
+                                    <a class="dropdown-item preset-item" data-preset="hollowknight" href="#">Hollow
+                                        Knight</a>
+                                    <a class="dropdown-item preset-item" data-preset="images" href="#">Multiple
+                                        Images</a>
+                                    <a class="dropdown-item preset-item" data-preset="multiplePolygonMasks"
+                                        href="#">Multiple
+                                        Polygon Mask</a>
+                                    <a class="dropdown-item preset-item" data-preset="nasa" href="#">NASA</a>
+                                    <a class="dropdown-item preset-item" data-preset="nyancat2" href="#">Nyan Cat</a>
+                                    <a class="dropdown-item preset-item" data-preset="parallax" href="#">Parallax</a>
+                                    <a class="dropdown-item preset-item" data-preset="polygonMask" href="#">Polygon
+                                        Mask</a>
+                                    <a class="dropdown-item preset-item" data-preset="polygons" href="#">Polygon
+                                        Shape</a>
+                                    <a class="dropdown-item preset-item" data-preset="preset" href="#">Presets</a>
+                                    <a class="dropdown-item preset-item" data-preset="random" href="#">Random Colors</a>
+                                    <a class="dropdown-item preset-item" data-preset="shadow" href="#">Shadow</a>
+                                    <a class="dropdown-item preset-item" data-preset="slow" href="#">Slow on Hover</a>
+                                    <a class="dropdown-item preset-item" data-preset="snow" href="#">Snow</a>
+                                    <a class="dropdown-item preset-item" data-preset="trail" href="#">Trails</a>
+                                    <a class="dropdown-item preset-item" data-preset="twinkle" href="#">Twinkle</a>
+                                    <a class="dropdown-item preset-item" data-preset="vibrate" href="#">Vibrate</a>
+                                    <a class="dropdown-item preset-item" data-preset="virus" href="#">Virus</a>
+                                    <a class="dropdown-item preset-item" data-preset="warp" href="#">Warp</a>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-xs text-center w-100" id="btnUpdate" type="button">Reload
+                            </button>
+                            <div class="btn-group">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">Share
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://www.facebook.com/dialog/feed?app_id=508841200049663&amp;link=https://particles.js.org&amp;picture=https://particles.js.org/images/demo.png&amp;name=tsParticles&amp;description=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles&amp;redirect_uri=https://particles.js.org">Facebook</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://twitter.com/intent/tweet?text=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles&amp;url=https://particles.js.org&amp;hashtags=typescript,particles,html5,webdesign&amp;via=HollowMatt_ITA">Twitter</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://particles.js.org&amp;title=tsParticles&amp;summary=A%20lightweight%20TypeScript%20library%20for%20creating%20particles&amp;source=https://particles.js.org">LinkedIn</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://dev.to/new?prefill=---%5Cn%20title%3A%20tsParticles%5Cn%20published%3A%20false%5Cn%20tags%3A%20javascript%2C%20showdev%2C%20webdesign%2C%20github%5Cn%20---%5Cn%20%5Cn%20%5Cn%20%5Cn%20tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles%20https://particles.js.org%5Cn">Dev</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="http://www.pinterest.com/pin/create/button/?url=https://particles.js.org&amp;media=https://particles.js.org/images/demo.png&amp;description=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles%20https://particles.js.org"
+                                        data-pin-do="buttonPin" data-pin-config="above">Pinterest</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="mailto:steve@jobs.com?subject=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles&amp;body=tsParticles%20-%20A%20lightweight%20TypeScript%20library%20for%20creating%20particles%20https://particles.js.org">Email</a>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">More
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://github.com/matteobruni/tsparticles">Find me on GitHub</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://github.com/matteobruni/jquery-particles">jQuery Plugin</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://github.com/matteobruni/react-tsparticles">ReactJS Component</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://github.com/matteobruni/preact-particles">PreactJS Component</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://github.com/matteobruni/ng-particles">AngularJS Component</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://github.com/matteobruni/particles.vue">VueJS Component</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://github.com/matteobruni/tsparticles/blob/main/README.md">README</a>
+                                    <a class="dropdown-item" target="_blank"
+                                        href="https://github.com/matteobruni/tsparticles/wiki">Official Wiki</a>
+                                    <a class="dropdown-item" target="_blank" href="/docs">API Documentation</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" id="export-image" href="#">Export Image</a>
+                                    <a class="dropdown-item" id="export-config" href="#">Export Config</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" id="toggle-stats" href="#">Toggle Stats</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" id="codepen-export" href="#">Export to CodePen</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col p-0">
+                        <div id="editor"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col p-0 h-100" id="tsparticles-container">
+                <div id="repulse-div"></div>
+                <div id="tsparticles"></div>
+                <div class="github">
+                    <a class="btn btn-link" href="https://github.com/matteobruni/tsparticles"
+                        title="Find more info on GitHub">
+                        <img class="img-fluid" id="gh-mark"
+                            src="https://particles.js.org/images/GitHub-Mark-120px-plus.png" alt="">
+                        <span id="gh-project">tsParticles</span>
+                    </a>
+                    <div>
+                        <!-- Place this tag where you want the button to render. -->
+                        <a class="github-button" href="https://github.com/matteobruni/tsparticles/subscription"
+                            data-icon="octicon-eye" aria-label="Watch matteobruni/tsparticles on GitHub">Watch</a>
+                        <!-- Place this tag where you want the button to render. -->
+                        <a class="github-button" href="https://github.com/matteobruni/tsparticles"
+                            data-icon="octicon-star" aria-label="Star matteobruni/tsparticles on GitHub">Star</a>
+                        <!-- Place this tag where you want the button to render. -->
+                        <a class="github-button" href="https://github.com/matteobruni/tsparticles/fork"
+                            data-icon="octicon-repo-forked" aria-label="Fork matteobruni/tsparticles on GitHub">Fork</a>
+                    </div>
+                </div>
+                <span class="toggle-sidebar d-none d-md-block">
+                    <span class="caret-right">
+                        <i class="fas fa-caret-right"></i>
+                    </span>
+                    <span class="caret-left">
+                        <i class="fas fa-caret-left"></i>
+                    </span>
+                </span>
+                <div id="stats" hidden>
+                    <div class="count-particles">
+                        <span class="js-count-particles">--</span> particles
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exportModal" tabindex="-1" role="dialog" aria-labelledby="exportModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exportModalLabel">Export</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-content"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" id="exportConfigCopy">Copy</button>
+                    <button class="btn btn-secondary" type="button" id="exportConfigDownload">Download</button>
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form action="https://codepen.io/pen/define" method="POST" target="_blank" hidden id="code-pen-form">
+        <input type="hidden" name="data" value="" id="code-pen-data"><input type="submit" value="Create Pen">
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@fortawesome/fontawesome-free@5.13.0/js/fontawesome.min.js"
+        integrity="sha256-NP9NujdEzS5m4ZxvNqkcbxyHB0dTRy9hG13RwTVBGwo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.js"
+        integrity="sha256-iha/QQwSuta8sBMrJ7j9cR7WF/duYY3RmJy+1JIYWjU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stats.ts@1.1.0/dist/stats.min.js"
+        integrity="sha256-WPj1kJMqFC8e1B4yBtOJ3OPV31gGsJydT6D4Dg6JMww=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.0/pathseg.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"
+        integrity="sha256-ur/YlHMU96MxHEsy3fHGszZHas7NzH4RQlD4tDVvFhw=" crossorigin="anonymous"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.19.0/dist/tsparticles.min.js"
+        integrity="sha256-zhYFgz8XKJ6LG4PeTsCwpXK72xTwubN9wlY6IiLRIqc=" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-basic@1.4.0/dist/tsparticles.preset.basic.min.js"
+        integrity="sha256-ZGBHteQ4bn2EUobo8fjUmLpHsQoPrkxajuUIWclyeKw=" crossorigin="anonymous"></script>
+
+    <script src="../js/demo.min.js"></script>
+</body>
+
+</html>

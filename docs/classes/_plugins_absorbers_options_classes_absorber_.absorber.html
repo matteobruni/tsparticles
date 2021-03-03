@@ -1,0 +1,436 @@
+<!doctype html>
+<html class="particles no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Absorber
+	| tsParticles - v1.19.2</title>
+	<meta name="description" content="Documentation for tsParticles - v1.19.2">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div id="tsparticles"></div>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json"
+				data-base="..">
+				<div class="field">
+					<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+					<input id="tsd-search-field" type="text" />
+				</div>
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">tsParticles - v1.19.2</a>
+				<div class="tsd-links">
+					&emsp;<a href="https://particles.js.org" class="title">Official Website</a>
+					&emsp;<a href="https://github.com/matteobruni/tsparticles" class="title">Repository</a>
+				</div>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						<input type="checkbox" id="tsd-filter-only-exported" />
+						<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						<input type="checkbox" id="tsd-animations" checked />
+						<label class="tsd-widget" for="tsd-animations">Animations</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_plugins_absorbers_options_classes_absorber_.html">Plugins/Absorbers/Options/Classes/Absorber</a>
+				</li>
+				<li>
+					<a href="_plugins_absorbers_options_classes_absorber_.absorber.html">Absorber</a>
+				</li>
+			</ul>
+			<h1>Class Absorber</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-3 col-menu col-menu-left menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Components</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/angular.html">Angular</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/react.html">React</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/vue2.html">Vue 2.x</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/vue3.html">Vue 3.x</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/svelte.html">Svelte</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/jquery.html">j<wbr>Query</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/preact.html">Preact</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/inferno.html">Inferno</a>
+					</li>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module tsd-is-external">
+						<a href="../modules/_plugins_absorbers_options_classes_absorber_.html">Plugins/<wbr>Absorbers/<wbr>Options/<wbr>Classes/<wbr>Absorber</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-6 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="#absorbers" id="absorbers" style="color: inherit; text-decoration: none;">
+							<h1>Absorbers</h1>
+						</a>
+						<table>
+							<thead>
+								<tr>
+									<th>key</th>
+									<th>option type</th>
+									<th>example</th>
+									<th>notes</th>
+								</tr>
+							</thead>
+							<tbody><tr>
+									<td><code>color</code></td>
+									<td><code>color object</code></td>
+									<td></td>
+									<td>This <code>color</code> object is the same described <a href="../interfaces/_core_interfaces_colors_.icolor.html">here</a></td>
+								</tr>
+								<tr>
+									<td><code>opacity</code></td>
+									<td><code>number</code></td>
+									<td><code>0...1</code></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><code>position</code></td>
+									<td><code>object</code></td>
+									<td><code>{ &quot;x&quot;: 50, &quot;y&quot;: 50 }</code></td>
+									<td>The position specified is not absolute, it will be used as a percent value of the canvas size.</td>
+								</tr>
+								<tr>
+									<td><code>size.density</code></td>
+									<td><code>number</code></td>
+									<td><code>5</code></td>
+									<td>The higher the value, the more the particles are attracted</td>
+								</tr>
+								<tr>
+									<td><code>size.limit</code></td>
+									<td><code>number</code></td>
+									<td><code>100</code></td>
+									<td>The absorber max radius, this value is optional</td>
+								</tr>
+								<tr>
+									<td><code>size.random</code></td>
+									<td><code>boolean</code> / <code>object</code></td>
+									<td><code>true</code> / <code>false</code></td>
+									<td>If boolean it randomize the absorber size from 0 to size.value</td>
+								</tr>
+								<tr>
+									<td><code>size.random.enable</code></td>
+									<td><code>boolean</code></td>
+									<td><code>true</code> / <code>false</code></td>
+									<td>This is the alternative to pure boolean value</td>
+								</tr>
+								<tr>
+									<td><code>size.random.minimumValue</code></td>
+									<td><code>number</code></td>
+									<td><code>10</code></td>
+									<td>This is the minimum value used in random values</td>
+								</tr>
+								<tr>
+									<td><code>size.value</code></td>
+									<td><code>number</code></td>
+									<td><code>50</code></td>
+									<td>The absorber radius</td>
+								</tr>
+						</tbody></table>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Absorber</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html" class="tsd-signature-type">IAbsorber</a></li>
+					<li><a href="../interfaces/_options_interfaces_ioptionloader_.ioptionloader.html" class="tsd-signature-type">IOptionLoader</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html" class="tsd-signature-type">IAbsorber</a><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#color" class="tsd-kind-icon">color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#destroy" class="tsd-kind-icon">destroy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#draggable" class="tsd-kind-icon">draggable</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#opacity" class="tsd-kind-icon">opacity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#orbits" class="tsd-kind-icon">orbits</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#position" class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#size" class="tsd-kind-icon">size</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_plugins_absorbers_options_classes_absorber_.absorber.html#load" class="tsd-kind-icon">load</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Absorber<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_plugins_absorbers_options_classes_absorber_.absorber.html" class="tsd-signature-type">Absorber</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L19">Plugins/Absorbers/Options/Classes/Absorber.ts:19</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_plugins_absorbers_options_classes_absorber_.absorber.html" class="tsd-signature-type">Absorber</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="color" class="tsd-anchor"></a>
+					<h3>color</h3>
+					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <a href="_options_classes_optionscolor_.optionscolor.html" class="tsd-signature-type">OptionsColor</a></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html">IAbsorber</a>.<a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html#color">color</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L13">Plugins/Absorbers/Options/Classes/Absorber.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="destroy" class="tsd-anchor"></a>
+					<h3>destroy</h3>
+					<div class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html">IAbsorber</a>.<a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html#destroy">destroy</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L18">Plugins/Absorbers/Options/Classes/Absorber.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="draggable" class="tsd-anchor"></a>
+					<h3>draggable</h3>
+					<div class="tsd-signature tsd-kind-icon">draggable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html">IAbsorber</a>.<a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html#draggable">draggable</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L14">Plugins/Absorbers/Options/Classes/Absorber.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="opacity" class="tsd-anchor"></a>
+					<h3>opacity</h3>
+					<div class="tsd-signature tsd-kind-icon">opacity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html">IAbsorber</a>.<a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html#opacity">opacity</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L15">Plugins/Absorbers/Options/Classes/Absorber.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="orbits" class="tsd-anchor"></a>
+					<h3>orbits</h3>
+					<div class="tsd-signature tsd-kind-icon">orbits<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html">IAbsorber</a>.<a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html#orbits">orbits</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L19">Plugins/Absorbers/Options/Classes/Absorber.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="position" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> position</h3>
+					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_interfaces_icoordinates_.icoordinates.html" class="tsd-signature-type">ICoordinates</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html">IAbsorber</a>.<a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html#position">position</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L16">Plugins/Absorbers/Options/Classes/Absorber.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="size" class="tsd-anchor"></a>
+					<h3>size</h3>
+					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <a href="_plugins_absorbers_options_classes_absorbersize_.absorbersize.html" class="tsd-signature-type">AbsorberSize</a></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html">IAbsorber</a>.<a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html#size">size</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L17">Plugins/Absorbers/Options/Classes/Absorber.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="load" class="tsd-anchor"></a>
+					<h3>load</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html" class="tsd-signature-type">IAbsorber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_options_interfaces_ioptionloader_.ioptionloader.html">IOptionLoader</a>.<a href="../interfaces/_options_interfaces_ioptionloader_.ioptionloader.html#load">load</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Plugins/Absorbers/Options/Classes/Absorber.ts#L31">Plugins/Absorbers/Options/Classes/Absorber.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_plugins_absorbers_options_interfaces_iabsorber_.iabsorber.html" class="tsd-signature-type">IAbsorber</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-3 col-menu col-menu-right menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-is-external">
+						<a href="_plugins_absorbers_options_classes_absorber_.absorber.html" class="tsd-kind-icon">Absorber</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#color" class="tsd-kind-icon">color</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#destroy" class="tsd-kind-icon">destroy</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#draggable" class="tsd-kind-icon">draggable</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#opacity" class="tsd-kind-icon">opacity</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#orbits" class="tsd-kind-icon">orbits</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#position" class="tsd-kind-icon">position</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#size" class="tsd-kind-icon">size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_plugins_absorbers_options_classes_absorber_.absorber.html#load" class="tsd-kind-icon">load</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span
+				class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span
+				class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-161253125-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

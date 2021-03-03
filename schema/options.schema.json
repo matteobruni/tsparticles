@@ -1,0 +1,5247 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "allOf": [
+        {
+            "$ref": "#/definitions/IOptions"
+        },
+        {
+            "$ref": "#/definitions/IAbsorberOptions"
+        },
+        {
+            "$ref": "#/definitions/IEmitterOptions"
+        },
+        {
+            "$ref": "#/definitions/IPolygonMaskOptions"
+        }
+    ],
+    "definitions": {
+        "DivType": {
+            "enum": [
+                "circle",
+                "rectangle"
+            ],
+            "type": "string"
+        },
+        "IAbsorber": {
+            "description": "Absorber options\n[[include:Options/Plugins/Absorbers.md]]",
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Absorber color"
+                },
+                "destroy": {
+                    "description": "Absorber destroy, this enable particle destruction, if disabled the particle will randomly respawn",
+                    "type": "boolean"
+                },
+                "draggable": {
+                    "description": "Absorber draggable, this enables dragging on absorbers",
+                    "type": "boolean"
+                },
+                "opacity": {
+                    "description": "Absorber opacity",
+                    "type": "number"
+                },
+                "orbits": {
+                    "description": "Absorber orbits, this enable particles orbiting while being attracted by the attracter",
+                    "type": "boolean"
+                },
+                "position": {
+                    "$ref": "#/definitions/RecursivePartial<ICoordinates>",
+                    "description": "Absorber position, percent values calculated on canvas size"
+                },
+                "size": {
+                    "$ref": "#/definitions/IAbsorberSize",
+                    "description": "Absorber size, these values will be used as pixels"
+                }
+            },
+            "type": "object"
+        },
+        "IAbsorberOptions": {
+            "properties": {
+                "absorbers": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IAbsorber"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IAbsorber"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "interactivity": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IInteractivity"
+                        },
+                        {
+                            "properties": {
+                                "modes": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/IModes"
+                                        },
+                                        {
+                                            "properties": {
+                                                "absorbers": {
+                                                    "anyOf": [
+                                                        {
+                                                            "$ref": "#/definitions/IAbsorber"
+                                                        },
+                                                        {
+                                                            "items": {
+                                                                "$ref": "#/definitions/IAbsorber"
+                                                            },
+                                                            "type": "array"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "IAbsorberSize": {
+            "properties": {
+                "density": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IAnimatableColor": {
+            "description": "The animatable color interface, it provides all the necessary properties to create a color animation\n[[include:Options/Particles/Color.md]]",
+            "properties": {
+                "animation": {
+                    "$ref": "#/definitions/IColorAnimation",
+                    "description": "The color animation property"
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IHsl"
+                        },
+                        {
+                            "$ref": "#/definitions/IHsv"
+                        },
+                        {
+                            "$ref": "#/definitions/IRgb"
+                        },
+                        {
+                            "$ref": "#/definitions/IValueColor"
+                        },
+                        {
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/definitions/IHsl"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IHsv"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IRgb"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IValueColor"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Color value, can be a single or an array of [[IValueColor]], [[IRgb]], [[IHsl]] or string"
+                }
+            },
+            "type": "object"
+        },
+        "IAttract": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IAttract_1": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "rotate": {
+                    "$ref": "#/definitions/ICoordinates"
+                },
+                "rotateX": {
+                    "type": "number"
+                },
+                "rotateY": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IBackground": {
+            "description": "The background options used by the canvas element, it's not drawn, it's applied in the style\n[[include:Options/Background.md]]",
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The background color used by the canvas element, string or [[IColor]] value"
+                },
+                "image": {
+                    "description": "The background image used by the canvas element, its value will be used to set CSS property background-image",
+                    "type": "string"
+                },
+                "opacity": {
+                    "description": "The background opacity",
+                    "type": "number"
+                },
+                "position": {
+                    "description": "The background position, it's used by the CSS property background-position",
+                    "type": "string"
+                },
+                "repeat": {
+                    "description": "The background position, it's used by the CSS property background-repeat",
+                    "type": "string"
+                },
+                "size": {
+                    "description": "The background size, it's used by the CSS property background-size",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IBackgroundMask": {
+            "description": "The options to apply a base color to canvas to cover what's behind\nThe particles will unveil what is covered by the canvas\n[[include:Options/BackgroundMask.md]]",
+            "properties": {
+                "composite": {
+                    "description": "Canvas composite operation\nvalues here: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation",
+                    "type": "string"
+                },
+                "cover": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "$ref": "#/definitions/IBackgroundMaskCover"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The color to use as a canvas background to cover"
+                },
+                "enable": {
+                    "description": "This settings enables the cover and the particles behavior as unveiling elements",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IBackgroundMaskCover": {
+            "description": "The background cover customization",
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The background color hiding all elements behind, string or [[IColor]] value."
+                },
+                "opacity": {
+                    "description": "The opacity of the background",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IBackgroundMode": {
+            "description": "The options to set the particles in the background using CSS `fixed` position\nThe [[zIndex]] property sets the background CSS `z-index` property\n[[include:Options/BackgroundMode.md]]",
+            "properties": {
+                "enable": {
+                    "description": "Sets the animated background mode for particles canvas bringing it to the back",
+                    "type": "boolean"
+                },
+                "zIndex": {
+                    "description": "Sets canvas z-index property, if -1, the default value, the interactivity options needs `window` value to work",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IBounce": {
+            "properties": {
+                "horizontal": {
+                    "$ref": "#/definitions/IValueWithRandom"
+                },
+                "vertical": {
+                    "$ref": "#/definitions/IValueWithRandom"
+                }
+            },
+            "type": "object"
+        },
+        "IBubble": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/definitions/IColor"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "distance": {
+                    "type": "number"
+                },
+                "divs": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IBubbleDiv"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IBubbleDiv"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "opacity": {
+                    "type": "number"
+                },
+                "size": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IBubbleDiv": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/definitions/IColor"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "distance": {
+                    "type": "number"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "ids": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "opacity": {
+                    "type": "number"
+                },
+                "selectors": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "size": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ICharacterShape": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "font": {
+                    "type": "string"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "style": {
+                    "type": "string"
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "weight": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IClickEvent": {
+            "description": "The canvas click event\n[[include:Options/Interactivity/Click.md]]",
+            "properties": {
+                "enable": {
+                    "description": "This property enables or disables the click event",
+                    "type": "boolean"
+                },
+                "mode": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "This property contains a [[ClickMode]] value or an array of those values.\nIf this value is an array, every mode will be used on click."
+                }
+            },
+            "type": "object"
+        },
+        "ICollisions": {
+            "properties": {
+                "bounce": {
+                    "$ref": "#/definitions/IBounce"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "mode": {
+                    "enum": [
+                        "absorb",
+                        "bounce",
+                        "destroy"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IColor": {
+            "description": "Color\n[[include:Color.md]]",
+            "properties": {
+                "value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IHsl"
+                        },
+                        {
+                            "$ref": "#/definitions/IHsv"
+                        },
+                        {
+                            "$ref": "#/definitions/IRgb"
+                        },
+                        {
+                            "$ref": "#/definitions/IValueColor"
+                        },
+                        {
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/definitions/IHsl"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IHsv"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IRgb"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IValueColor"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Color value, can be a single or an array of [[IValueColor]], [[IRgb]], [[IHsl]] or string"
+                }
+            },
+            "type": "object"
+        },
+        "IColorAnimation": {
+            "description": "Color animation interface, these properties are used to animate colors",
+            "properties": {
+                "enable": {
+                    "description": "Enables/disables the animation",
+                    "type": "boolean"
+                },
+                "speed": {
+                    "description": "Hue speed rotation (from 0 to 360 degrees)",
+                    "type": "number"
+                },
+                "sync": {
+                    "description": "Enables the sync animations for the particles created at the same time\npushed or emitter particles will be out of sync\nNot using this value will create random colors particles at the same lightness and saturation of the base color",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IConnect": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "lineLinked": {
+                    "$ref": "#/definitions/IConnectLinks"
+                },
+                "line_linked": {
+                    "$ref": "#/definitions/IConnectLinks"
+                },
+                "links": {
+                    "$ref": "#/definitions/IConnectLinks"
+                },
+                "radius": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IConnectLinks": {
+            "properties": {
+                "opacity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ICoordinates": {
+            "properties": {
+                "x": {
+                    "type": "number"
+                },
+                "y": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IDensity": {
+            "properties": {
+                "area": {
+                    "type": "number"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "value_area": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IDimension": {
+            "properties": {
+                "height": {
+                    "type": "number"
+                },
+                "width": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IDivEvent": {
+            "description": "[[include:Options/Interactivity/Div.md]]",
+            "properties": {
+                "el": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "elementId": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "ids": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "mode": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "selectors": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "type": {
+                    "$ref": "#/definitions/DivType"
+                }
+            },
+            "type": "object"
+        },
+        "IDraw": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "lineColor": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "lineWidth": {
+                    "type": "number"
+                },
+                "stroke": {
+                    "$ref": "#/definitions/IDrawStroke"
+                }
+            },
+            "type": "object"
+        },
+        "IDrawStroke": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "opacity": {
+                    "type": "number"
+                },
+                "width": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IEmitter": {
+            "description": "Particles emitter object options\n[[include:Options/Plugins/Emitters.md]]",
+            "properties": {
+                "direction": {
+                    "description": "The direction of the emitted particles, [[MoveDirection]] is the enum used for values",
+                    "enum": [
+                        "bottom",
+                        "bottom-left",
+                        "bottom-right",
+                        "bottomLeft",
+                        "bottomRight",
+                        "left",
+                        "none",
+                        "right",
+                        "top",
+                        "top-left",
+                        "top-right",
+                        "topLeft",
+                        "topRight"
+                    ],
+                    "type": "string"
+                },
+                "life": {
+                    "$ref": "#/definitions/IEmitterLife",
+                    "description": "The emitter life options"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>",
+                    "description": "Particles emitted customization.\nThese settings will overrides other particles settings for the particles emitted by this emitter\nParticles number options won't override anything, they will be ignored completely"
+                },
+                "position": {
+                    "$ref": "#/definitions/RecursivePartial<ICoordinates>",
+                    "description": "The relative position (in percent) of the emitter, where particles spawns.\nIf size is specified the position will be the center of the size options"
+                },
+                "rate": {
+                    "$ref": "#/definitions/IEmitterRate",
+                    "description": "The particles emitting rate options"
+                },
+                "size": {
+                    "$ref": "#/definitions/IEmitterSize",
+                    "description": "The size of the particles emitter area"
+                }
+            },
+            "type": "object"
+        },
+        "IEmitterLife": {
+            "description": "The particles emitter life options",
+            "properties": {
+                "count": {
+                    "description": "The count of lives the particles emitter has.\nIf <= 0 or not specified infinity will be the value.\nIf the count is > 0 it will spawn only that number of times then it'll be destroyed and removed",
+                    "type": "number"
+                },
+                "delay": {
+                    "description": "The delay between any spawn, except first.",
+                    "type": "number"
+                },
+                "duration": {
+                    "description": "The duration of any emitter life.\nIf <= 0 or  not specified infinity will be the value.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IEmitterOptions": {
+            "properties": {
+                "emitters": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IEmitter"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IEmitter"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "interactivity": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/IInteractivity"
+                        },
+                        {
+                            "properties": {
+                                "modes": {
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/IModes"
+                                        },
+                                        {
+                                            "properties": {
+                                                "emitters": {
+                                                    "anyOf": [
+                                                        {
+                                                            "$ref": "#/definitions/IEmitter"
+                                                        },
+                                                        {
+                                                            "items": {
+                                                                "$ref": "#/definitions/IEmitter"
+                                                            },
+                                                            "type": "array"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "type": "object"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "IEmitterRate": {
+            "description": "The particles emitter rate options",
+            "properties": {
+                "delay": {
+                    "description": "The emitting velocity, how many seconds will pass between the next particles creation\nDecimal values allowed",
+                    "type": "number"
+                },
+                "quantity": {
+                    "description": "The emitting quantity, how many particles will be created at every creation event",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IEmitterSize": {
+            "properties": {
+                "height": {
+                    "type": "number"
+                },
+                "mode": {
+                    "enum": [
+                        "percent",
+                        "precise"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IEvents": {
+            "description": "[[include:Options/Interactivity/Events.md]]",
+            "properties": {
+                "onClick": {
+                    "$ref": "#/definitions/IClickEvent"
+                },
+                "onDiv": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IDivEvent"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IDivEvent"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "onHover": {
+                    "$ref": "#/definitions/IHoverEvent"
+                },
+                "onclick": {
+                    "$ref": "#/definitions/IClickEvent"
+                },
+                "ondiv": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IDivEvent"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IDivEvent"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "onhover": {
+                    "$ref": "#/definitions/IHoverEvent"
+                },
+                "resize": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IGrab": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "lineLinked": {
+                    "$ref": "#/definitions/IGrabLinks"
+                },
+                "line_linked": {
+                    "$ref": "#/definitions/IGrabLinks"
+                },
+                "links": {
+                    "$ref": "#/definitions/IGrabLinks"
+                }
+            },
+            "type": "object"
+        },
+        "IGrabLinks": {
+            "properties": {
+                "blink": {
+                    "type": "boolean"
+                },
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "consent": {
+                    "type": "boolean"
+                },
+                "opacity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IHoverEvent": {
+            "description": "[[include:Options/Interactivity/Hover.md]]",
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "mode": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "parallax": {
+                    "$ref": "#/definitions/IParallax"
+                }
+            },
+            "type": "object"
+        },
+        "IHsl": {
+            "properties": {
+                "h": {
+                    "type": "number"
+                },
+                "l": {
+                    "type": "number"
+                },
+                "s": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IHsv": {
+            "properties": {
+                "h": {
+                    "type": "number"
+                },
+                "s": {
+                    "type": "number"
+                },
+                "v": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IImageShape": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "height": {
+                    "type": "number"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "replaceColor": {
+                    "type": "boolean"
+                },
+                "replace_color": {
+                    "type": "boolean"
+                },
+                "src": {
+                    "type": "string"
+                },
+                "width": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IInfection": {
+            "description": "The particles infection animations options\n[[include:Options/Infection.md]]",
+            "properties": {
+                "cure": {
+                    "description": "This property specifies if particles can turn back to the original state after being infected",
+                    "type": "boolean"
+                },
+                "delay": {
+                    "description": "The infection delay of the new infected particles, initial infected particles won't be affected.",
+                    "type": "number"
+                },
+                "enable": {
+                    "description": "Enables the infection animations",
+                    "type": "boolean"
+                },
+                "infections": {
+                    "description": "The initial number of infected particles",
+                    "type": "number"
+                },
+                "stages": {
+                    "description": "This property contains all the infection stages configurations, array of [[IInfectionStage]]",
+                    "items": {
+                        "$ref": "#/definitions/IInfectionStage"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "IInfectionStage": {
+            "description": "Infection stage options",
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Infection stage particle color"
+                },
+                "duration": {
+                    "description": "Infection stage duration, after this time has passed it will go to the next stage,\nresets to first or turn back to normal if cure is enabled.",
+                    "type": "number"
+                },
+                "infectedStage": {
+                    "description": "The infected stage set to the infected particles by the current stage",
+                    "type": "number"
+                },
+                "radius": {
+                    "description": "Infection stage contagious area radius, if 0 only particles touching would be affected",
+                    "type": "number"
+                },
+                "rate": {
+                    "description": "Infection rate, the higher it is, the more particles will be infected.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IInline": {
+            "properties": {
+                "arrangement": {
+                    "enum": [
+                        "equidistant",
+                        "one-per-point",
+                        "onePerPoint",
+                        "per-point",
+                        "perPoint",
+                        "random-length",
+                        "random-point",
+                        "randomLength",
+                        "randomPoint"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IInteractivity": {
+            "description": "Particles interactivity options\n[[include:Options/Interactivity.md]]",
+            "properties": {
+                "detect_on": {
+                    "enum": [
+                        "canvas",
+                        "parent",
+                        "window"
+                    ],
+                    "type": "string"
+                },
+                "detectsOn": {
+                    "description": "Where the mouse events will be detected\nIf set to `canvas` only the particles canvas will be target\nIf set to `parent` only the particles canvas parent will be the target\nIf set to `window` every area will be the target",
+                    "enum": [
+                        "canvas",
+                        "parent",
+                        "window"
+                    ],
+                    "type": "string"
+                },
+                "events": {
+                    "$ref": "#/definitions/IEvents",
+                    "description": "Interaction events options, this configures which events are enabled and which modes should be used"
+                },
+                "modes": {
+                    "$ref": "#/definitions/IModes",
+                    "description": "Interaction modes options, this configures every mode behavior"
+                }
+            },
+            "type": "object"
+        },
+        "ILife": {
+            "properties": {
+                "count": {
+                    "type": "number"
+                },
+                "delay": {
+                    "$ref": "#/definitions/ILifeDelay"
+                },
+                "duration": {
+                    "$ref": "#/definitions/ILifeDuration"
+                }
+            },
+            "type": "object"
+        },
+        "ILifeDelay": {
+            "properties": {
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "sync": {
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ILifeDuration": {
+            "properties": {
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "sync": {
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ILight": {
+            "properties": {
+                "area": {
+                    "$ref": "#/definitions/ILightArea"
+                },
+                "shadow": {
+                    "$ref": "#/definitions/ILightShadow"
+                }
+            },
+            "type": "object"
+        },
+        "ILightArea": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/definitions/ILightGradient"
+                },
+                "radius": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ILightGradient": {
+            "properties": {
+                "start": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "stop": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "ILightShadow": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "length": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ILinks": {
+            "description": "Particles Links options, this configures how the particles link together\n[[include:Options/Particles/Links.md]]",
+            "properties": {
+                "blink": {
+                    "description": "Enables random blinking, if set to true and [[color]] is set to \"random\"\nthe link will have a random color each frame resulting in a blinking animation",
+                    "type": "boolean"
+                },
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Link line color, can be a string or an [[IColor]] object.\nIf the value is \"random\", if [[blink]] is `true` sets a random color each frame,\nif [[consent]] is `true` a random color is used for all links,\nif [[blink]] and [[consent]] are false the color will be a gradient with the two linked particles color"
+                },
+                "consent": {
+                    "description": "If enabled the links will have a single random color, if [[color]] value is \"random\"",
+                    "type": "boolean"
+                },
+                "distance": {
+                    "description": "Sets the maximum particles link line length",
+                    "type": "number"
+                },
+                "enable": {
+                    "description": "Enables the particles links",
+                    "type": "boolean"
+                },
+                "frequency": {
+                    "type": "number"
+                },
+                "id": {
+                    "description": "Sets the link id, if two particles have a different link id they won't link together",
+                    "type": "string"
+                },
+                "opacity": {
+                    "description": "Sets the maximum link opacity",
+                    "type": "number"
+                },
+                "shadow": {
+                    "$ref": "#/definitions/ILinksShadow",
+                    "description": "Enables the link line shadow\n**Shadows in canvas are really heavy and this can affect negatively on performances, use with caution**"
+                },
+                "triangles": {
+                    "$ref": "#/definitions/ILinksTriangle",
+                    "description": "Fills the triangles made by link lines"
+                },
+                "warp": {
+                    "description": "Enable link lines warp, linking particles between edges like there's a warp portal at the edges",
+                    "type": "boolean"
+                },
+                "width": {
+                    "description": "Sets the link line width",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ILinksShadow": {
+            "properties": {
+                "blur": {
+                    "type": "number"
+                },
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ILinksTriangle": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "frequency": {
+                    "type": "number"
+                },
+                "opacity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ILocalSvg": {
+            "properties": {
+                "path": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "size": {
+                    "$ref": "#/definitions/IDimension"
+                }
+            },
+            "type": "object"
+        },
+        "IManualParticle": {
+            "description": "Manual particles options\n[[include:Options/ManualParticles.md]]",
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>",
+                    "description": "Particle options, this properties will override the general particles configuration"
+                },
+                "position": {
+                    "$ref": "#/definitions/ICoordinates",
+                    "description": "Particle position in canvas size percent, if undefined a random position will be used"
+                }
+            },
+            "type": "object"
+        },
+        "IModes": {
+            "description": "[[include:Options/Interactivity/Modes.md]]",
+            "properties": {
+                "attract": {
+                    "$ref": "#/definitions/IAttract"
+                },
+                "bubble": {
+                    "$ref": "#/definitions/IBubble"
+                },
+                "connect": {
+                    "$ref": "#/definitions/IConnect"
+                },
+                "grab": {
+                    "$ref": "#/definitions/IGrab"
+                },
+                "light": {
+                    "$ref": "#/definitions/ILight"
+                },
+                "push": {
+                    "$ref": "#/definitions/IPush"
+                },
+                "remove": {
+                    "$ref": "#/definitions/IRemove"
+                },
+                "repulse": {
+                    "$ref": "#/definitions/IRepulse"
+                },
+                "slow": {
+                    "$ref": "#/definitions/ISlow"
+                },
+                "trail": {
+                    "$ref": "#/definitions/ITrail"
+                }
+            },
+            "type": "object"
+        },
+        "IMotion": {
+            "description": "[[include:Options/Motion.md]]",
+            "properties": {
+                "disable": {
+                    "description": "Disables motions for users with `prefer-reduced-motion` enabled",
+                    "type": "boolean"
+                },
+                "reduce": {
+                    "$ref": "#/definitions/IMotionReduce",
+                    "description": "Reduce motion settings for users with `prefer-reduced-motion` enabled\nIf [[disable]] is `true` these values will be ignored"
+                }
+            },
+            "type": "object"
+        },
+        "IMotionReduce": {
+            "properties": {
+                "factor": {
+                    "description": "Factor used to reduce motion, the higher the value, the higher the motion reduction",
+                    "type": "number"
+                },
+                "value": {
+                    "description": "Reduces motion settings for users with `prefer-reduced-motion` enabled",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IMove": {
+            "description": "[[include:Options/Particles/Move.md]]",
+            "properties": {
+                "angle": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IMoveAngle"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ]
+                },
+                "attract": {
+                    "$ref": "#/definitions/IAttract_1"
+                },
+                "bounce": {
+                    "type": "boolean"
+                },
+                "collisions": {
+                    "type": "boolean"
+                },
+                "direction": {
+                    "enum": [
+                        "bottom",
+                        "bottom-left",
+                        "bottom-right",
+                        "bottomLeft",
+                        "bottomRight",
+                        "left",
+                        "none",
+                        "right",
+                        "top",
+                        "top-left",
+                        "top-right",
+                        "topLeft",
+                        "topRight"
+                    ],
+                    "type": "string"
+                },
+                "distance": {
+                    "type": "number"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "gravity": {
+                    "$ref": "#/definitions/IMoveGravity"
+                },
+                "noise": {
+                    "$ref": "#/definitions/INoise"
+                },
+                "outMode": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                },
+                "outModes": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IOutModes"
+                        },
+                        {
+                            "enum": [
+                                "bounce",
+                                "bounce-horizontal",
+                                "bounce-vertical",
+                                "bounceHorizontal",
+                                "bounceVertical",
+                                "destroy",
+                                "none",
+                                "out"
+                            ],
+                            "type": "string"
+                        }
+                    ]
+                },
+                "out_mode": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                },
+                "random": {
+                    "type": "boolean"
+                },
+                "size": {
+                    "type": "boolean"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "straight": {
+                    "type": "boolean"
+                },
+                "trail": {
+                    "$ref": "#/definitions/ITrail_1"
+                },
+                "vibrate": {
+                    "type": "boolean"
+                },
+                "warp": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IMoveAngle": {
+            "properties": {
+                "offset": {
+                    "type": "number"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IMoveGravity": {
+            "properties": {
+                "acceleration": {
+                    "type": "number"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "maxSpeed": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IMove_1": {
+            "properties": {
+                "radius": {
+                    "type": "number"
+                },
+                "type": {
+                    "enum": [
+                        "path",
+                        "radius"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "INoise": {
+            "properties": {
+                "delay": {
+                    "$ref": "#/definitions/IValueWithRandom"
+                },
+                "enable": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IOpacity": {
+            "description": "[[include:Options/Particles/Opacity.md]]",
+            "properties": {
+                "anim": {
+                    "$ref": "#/definitions/IOpacityAnimation"
+                },
+                "animation": {
+                    "$ref": "#/definitions/IOpacityAnimation"
+                },
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IOpacityAnimation": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "minimumValue": {
+                    "type": "number"
+                },
+                "opacity_min": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "sync": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IOptions": {
+            "description": "The Options interface, defines all the options that can be used by `tsParticles`\n[[include:Options.md]]",
+            "properties": {
+                "autoPlay": {
+                    "description": "Sets if the animations should start automatically or manually",
+                    "type": "boolean"
+                },
+                "background": {
+                    "$ref": "#/definitions/IBackground",
+                    "description": "Background options, these background options will be used to the canvas element, they are all CSS properties"
+                },
+                "backgroundMask": {
+                    "$ref": "#/definitions/IBackgroundMask",
+                    "description": "Background Mask options, what's behind the canvas will become hidden and particles will uncover it"
+                },
+                "backgroundMode": {
+                    "$ref": "#/definitions/IBackgroundMode",
+                    "description": "Sets the animated background mode for particles canvas bringing it to the back"
+                },
+                "detectRetina": {
+                    "description": "Enables the retina detection, if disabled the ratio used by canvas will be always 1 and not the device setting.",
+                    "type": "boolean"
+                },
+                "fpsLimit": {
+                    "description": "The FPS (Frame Per Second) limit applied to all particles animations.",
+                    "type": "number"
+                },
+                "fps_limit": {
+                    "description": "The Frame Per Second limit applied to all particles animations.",
+                    "type": "number"
+                },
+                "infection": {
+                    "$ref": "#/definitions/IInfection",
+                    "description": "The infection options"
+                },
+                "interactivity": {
+                    "$ref": "#/definitions/IInteractivity",
+                    "description": "The particles interaction options"
+                },
+                "manualParticles": {
+                    "description": "Particles inserted at load time with a specific position",
+                    "items": {
+                        "$ref": "#/definitions/IManualParticle"
+                    },
+                    "type": "array"
+                },
+                "motion": {
+                    "$ref": "#/definitions/IMotion",
+                    "description": "Handles user's preferences about motion"
+                },
+                "particles": {
+                    "$ref": "#/definitions/IParticles",
+                    "description": "The particles options"
+                },
+                "pauseOnBlur": {
+                    "description": "Enables or disabled the animation on window blur",
+                    "type": "boolean"
+                },
+                "pauseOnOutsideViewport": {
+                    "description": "Enable or disabled the animation if the element is outside the viewport",
+                    "type": "boolean"
+                },
+                "preset": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "This property will be used to add specified presets to the options"
+                },
+                "retina_detect": {
+                    "description": "Enables the retina detection, if disabled the ratio used by canvas will be always 1 and not the device setting.",
+                    "type": "boolean"
+                },
+                "themes": {
+                    "description": "User-defined themes that can be retrieved by the particles [[Container]]",
+                    "items": {
+                        "$ref": "#/definitions/ITheme"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "IOutModes": {
+            "properties": {
+                "bottom": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                },
+                "default": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                },
+                "left": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                },
+                "right": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                },
+                "top": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IParallax": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "force": {
+                    "type": "number"
+                },
+                "smooth": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IParticles": {
+            "description": "[[include:Options/Particles.md]]",
+            "properties": {
+                "bounce": {
+                    "$ref": "#/definitions/IBounce"
+                },
+                "collisions": {
+                    "$ref": "#/definitions/ICollisions"
+                },
+                "color": {
+                    "$ref": "#/definitions/IAnimatableColor"
+                },
+                "groups": {
+                    "additionalProperties": {
+                        "$ref": "#/definitions/IParticles"
+                    },
+                    "type": "object"
+                },
+                "life": {
+                    "$ref": "#/definitions/ILife"
+                },
+                "lineLinked": {
+                    "$ref": "#/definitions/ILinks"
+                },
+                "line_linked": {
+                    "$ref": "#/definitions/ILinks"
+                },
+                "links": {
+                    "$ref": "#/definitions/ILinks"
+                },
+                "move": {
+                    "$ref": "#/definitions/IMove"
+                },
+                "number": {
+                    "$ref": "#/definitions/IParticlesNumber"
+                },
+                "opacity": {
+                    "$ref": "#/definitions/IOpacity"
+                },
+                "reduceDuplicates": {
+                    "type": "boolean"
+                },
+                "rotate": {
+                    "$ref": "#/definitions/IRotate"
+                },
+                "shadow": {
+                    "$ref": "#/definitions/IShadow"
+                },
+                "shape": {
+                    "$ref": "#/definitions/IShape"
+                },
+                "size": {
+                    "$ref": "#/definitions/ISize"
+                },
+                "stroke": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IStroke"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IStroke"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "twinkle": {
+                    "$ref": "#/definitions/ITwinkle"
+                },
+                "zIndex": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IParticlesNumber": {
+            "description": "[[include:Options/Particles/Number.md]]",
+            "properties": {
+                "density": {
+                    "$ref": "#/definitions/IDensity"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "max": {
+                    "type": "number"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IPolygonMask": {
+            "description": "[[include:Options/Plugins/PolygonMask.md]]",
+            "properties": {
+                "data": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/ILocalSvg"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "draw": {
+                    "$ref": "#/definitions/IDraw"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "inline": {
+                    "$ref": "#/definitions/IInline"
+                },
+                "inlineArrangement": {
+                    "enum": [
+                        "equidistant",
+                        "one-per-point",
+                        "onePerPoint",
+                        "per-point",
+                        "perPoint",
+                        "random-length",
+                        "random-point",
+                        "randomLength",
+                        "randomPoint"
+                    ],
+                    "type": "string"
+                },
+                "move": {
+                    "$ref": "#/definitions/IMove_1"
+                },
+                "position": {
+                    "$ref": "#/definitions/ICoordinates"
+                },
+                "scale": {
+                    "type": "number"
+                },
+                "type": {
+                    "enum": [
+                        "inline",
+                        "inside",
+                        "none",
+                        "outside"
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "IPolygonMaskOptions": {
+            "properties": {
+                "polygon": {
+                    "$ref": "#/definitions/IPolygonMask"
+                }
+            },
+            "type": "object"
+        },
+        "IPolygonShape": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "nb_sides": {
+                    "type": "number"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "sides": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IPush": {
+            "properties": {
+                "particles_nb": {
+                    "type": "number"
+                },
+                "quantity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IRandom": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "minimumValue": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IRemove": {
+            "properties": {
+                "particles_nb": {
+                    "type": "number"
+                },
+                "quantity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IRepulse": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "divs": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRepulseDiv"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IRepulseDiv"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IRepulseDiv": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "ids": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "selectors": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "speed": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IRgb": {
+            "properties": {
+                "b": {
+                    "type": "number"
+                },
+                "g": {
+                    "type": "number"
+                },
+                "r": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IRotate": {
+            "description": "[[include:Options/Particles/Rotate.md]]",
+            "properties": {
+                "animation": {
+                    "$ref": "#/definitions/IRotateAnimation"
+                },
+                "direction": {
+                    "enum": [
+                        "clockwise",
+                        "counter-clockwise",
+                        "counterClockwise",
+                        "random"
+                    ],
+                    "type": "string"
+                },
+                "path": {
+                    "type": "boolean"
+                },
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IRotateAnimation": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "sync": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "IShadow": {
+            "properties": {
+                "blur": {
+                    "type": "number"
+                },
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "offset": {
+                    "$ref": "#/definitions/ICoordinates"
+                }
+            },
+            "type": "object"
+        },
+        "IShape": {
+            "description": "[[include:Options/Particles/Shape.md]]",
+            "properties": {
+                "character": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/ICharacterShape"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/ICharacterShape"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "custom": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/IShapeValues"
+                            },
+                            {
+                                "items": {
+                                    "$ref": "#/definitions/IShapeValues"
+                                },
+                                "type": "array"
+                            }
+                        ]
+                    },
+                    "type": "object"
+                },
+                "image": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IImageShape"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IImageShape"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "images": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IImageShape"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IImageShape"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "options": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/definitions/IShapeValues"
+                            },
+                            {
+                                "items": {
+                                    "$ref": "#/definitions/IShapeValues"
+                                },
+                                "type": "array"
+                            }
+                        ]
+                    },
+                    "type": "object"
+                },
+                "polygon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IPolygonShape"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IPolygonShape"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "stroke": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IStroke"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IStroke"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "IShapeValues": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                }
+            },
+            "type": "object"
+        },
+        "ISize": {
+            "description": "[[include:Options/Particles/Size.md]]",
+            "properties": {
+                "anim": {
+                    "$ref": "#/definitions/ISizeAnimation"
+                },
+                "animation": {
+                    "$ref": "#/definitions/ISizeAnimation"
+                },
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ISizeAnimation": {
+            "properties": {
+                "destroy": {
+                    "enum": [
+                        "max",
+                        "min",
+                        "none"
+                    ],
+                    "type": "string"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "minimumValue": {
+                    "type": "number"
+                },
+                "size_min": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "startValue": {
+                    "enum": [
+                        "max",
+                        "min",
+                        "random"
+                    ],
+                    "type": "string"
+                },
+                "sync": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ISlow": {
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "radius": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IStroke": {
+            "description": "Particle stroke, outlines the particle with a customizable line\n[[include:Options/Particles/Stroke.md]]",
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IAnimatableColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The stroke color, can be animated too"
+                },
+                "opacity": {
+                    "description": "The stroke opacity",
+                    "type": "number"
+                },
+                "width": {
+                    "description": "The stroke line width",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ITheme": {
+            "description": "The options to configure themes that can be easily switched\n[[include:Options/Themes.md]]",
+            "properties": {
+                "default": {
+                    "$ref": "#/definitions/IThemeDefault",
+                    "description": "Options to set the default theme"
+                },
+                "name": {
+                    "description": "Theme name, use it when changing theme",
+                    "type": "string"
+                },
+                "options": {
+                    "$ref": "#/definitions/RecursivePartial<IOptions>",
+                    "description": "All options the theme will override"
+                }
+            },
+            "type": "object"
+        },
+        "IThemeDefault": {
+            "description": "Options to set the default theme",
+            "properties": {
+                "mode": {
+                    "anyOf": [
+                        {
+                            "enum": [
+                                "anchor",
+                                "any",
+                                "big",
+                                "blink",
+                                "bold",
+                                "charAt",
+                                "charCodeAt",
+                                "codePointAt",
+                                "concat",
+                                "dark",
+                                "endsWith",
+                                "fixed",
+                                "fontcolor",
+                                "fontsize",
+                                "includes",
+                                "indexOf",
+                                "italics",
+                                "lastIndexOf",
+                                "length",
+                                "light",
+                                "link",
+                                "localeCompare",
+                                "match",
+                                "normalize",
+                                "padEnd",
+                                "padStart",
+                                "repeat",
+                                "replace",
+                                "search",
+                                "slice",
+                                "small",
+                                "split",
+                                "startsWith",
+                                "strike",
+                                "sub",
+                                "substr",
+                                "substring",
+                                "sup",
+                                "toLocaleLowerCase",
+                                "toLocaleUpperCase",
+                                "toLowerCase",
+                                "toString",
+                                "toUpperCase",
+                                "trim",
+                                "trimEnd",
+                                "trimLeft",
+                                "trimRight",
+                                "trimStart",
+                                "valueOf"
+                            ],
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ],
+                    "description": "Default theme mode\n`any`: Sets the default theme for every configuration\n`dark`: Sets the default theme when the user has dark mode set\n`light`: Sets the default theme when the user has light mode set\nIf `dark` or `light` themes are set, the `any` default theme will be used only for unset modes"
+                },
+                "value": {
+                    "description": "Sets or unsets the default flag to this theme and mode",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ITrail": {
+            "properties": {
+                "delay": {
+                    "type": "number"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "quantity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ITrail_1": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "fillColor": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "length": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ITwinkle": {
+            "description": "[[include:Options/Particles/Twinkle.md]]",
+            "properties": {
+                "lines": {
+                    "$ref": "#/definitions/ITwinkleValues"
+                },
+                "particles": {
+                    "$ref": "#/definitions/ITwinkleValues"
+                }
+            },
+            "type": "object"
+        },
+        "ITwinkleValues": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "frequency": {
+                    "type": "number"
+                },
+                "opacity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "IValueColor": {
+            "properties": {
+                "hsl": {
+                    "$ref": "#/definitions/IHsl"
+                },
+                "hsv": {
+                    "$ref": "#/definitions/IHsv"
+                },
+                "rgb": {
+                    "$ref": "#/definitions/IRgb"
+                }
+            },
+            "type": "object"
+        },
+        "IValueWithRandom": {
+            "properties": {
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IAbsorber>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Absorber color"
+                },
+                "destroy": {
+                    "description": "Absorber destroy, this enable particle destruction, if disabled the particle will randomly respawn",
+                    "type": "boolean"
+                },
+                "draggable": {
+                    "description": "Absorber draggable, this enables dragging on absorbers",
+                    "type": "boolean"
+                },
+                "opacity": {
+                    "description": "Absorber opacity",
+                    "type": "number"
+                },
+                "orbits": {
+                    "description": "Absorber orbits, this enable particles orbiting while being attracted by the attracter",
+                    "type": "boolean"
+                },
+                "position": {
+                    "$ref": "#/definitions/RecursivePartial<ICoordinates>",
+                    "description": "Absorber position, percent values calculated on canvas size"
+                },
+                "size": {
+                    "$ref": "#/definitions/RecursivePartial<IAbsorberSize>",
+                    "description": "Absorber size, these values will be used as pixels"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IAbsorber>_1": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Absorber color"
+                },
+                "destroy": {
+                    "description": "Absorber destroy, this enable particle destruction, if disabled the particle will randomly respawn",
+                    "type": "boolean"
+                },
+                "draggable": {
+                    "description": "Absorber draggable, this enables dragging on absorbers",
+                    "type": "boolean"
+                },
+                "opacity": {
+                    "description": "Absorber opacity",
+                    "type": "number"
+                },
+                "orbits": {
+                    "description": "Absorber orbits, this enable particles orbiting while being attracted by the attracter",
+                    "type": "boolean"
+                },
+                "position": {
+                    "$ref": "#/definitions/RecursivePartial<ICoordinates>",
+                    "description": "Absorber position, percent values calculated on canvas size"
+                },
+                "size": {
+                    "$ref": "#/definitions/RecursivePartial<IAbsorberSize>",
+                    "description": "Absorber size, these values will be used as pixels"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IAbsorberSize>": {
+            "properties": {
+                "density": {
+                    "type": "number"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IAnimatableColor>": {
+            "properties": {
+                "animation": {
+                    "$ref": "#/definitions/RecursivePartial<IColorAnimation>",
+                    "description": "The color animation property"
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IHsl"
+                        },
+                        {
+                            "$ref": "#/definitions/IHsv"
+                        },
+                        {
+                            "$ref": "#/definitions/IRgb"
+                        },
+                        {
+                            "$ref": "#/definitions/IValueColor"
+                        },
+                        {
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/definitions/IHsl"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IHsv"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IRgb"
+                                    },
+                                    {
+                                        "$ref": "#/definitions/IValueColor"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Color value, can be a single or an array of [[IValueColor]], [[IRgb]], [[IHsl]] or string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IAttract>": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "rotate": {
+                    "$ref": "#/definitions/RecursivePartial<ICoordinates>"
+                },
+                "rotateX": {
+                    "type": "number"
+                },
+                "rotateY": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IAttract>_1": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IBackground>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The background color used by the canvas element, string or [[IColor]] value"
+                },
+                "image": {
+                    "description": "The background image used by the canvas element, its value will be used to set CSS property background-image",
+                    "type": "string"
+                },
+                "opacity": {
+                    "description": "The background opacity",
+                    "type": "number"
+                },
+                "position": {
+                    "description": "The background position, it's used by the CSS property background-position",
+                    "type": "string"
+                },
+                "repeat": {
+                    "description": "The background position, it's used by the CSS property background-repeat",
+                    "type": "string"
+                },
+                "size": {
+                    "description": "The background size, it's used by the CSS property background-size",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IBackgroundMask>": {
+            "properties": {
+                "composite": {
+                    "description": "Canvas composite operation\nvalues here: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation",
+                    "type": "string"
+                },
+                "cover": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "$ref": "#/definitions/IBackgroundMaskCover"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The color to use as a canvas background to cover"
+                },
+                "enable": {
+                    "description": "This settings enables the cover and the particles behavior as unveiling elements",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IBackgroundMode>": {
+            "properties": {
+                "enable": {
+                    "description": "Sets the animated background mode for particles canvas bringing it to the back",
+                    "type": "boolean"
+                },
+                "zIndex": {
+                    "description": "Sets canvas z-index property, if -1, the default value, the interactivity options needs `window` value to work",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IBounce>": {
+            "properties": {
+                "horizontal": {
+                    "$ref": "#/definitions/RecursivePartial<IValueWithRandom>"
+                },
+                "vertical": {
+                    "$ref": "#/definitions/RecursivePartial<IValueWithRandom>"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IBubble>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/definitions/IColor"
+                                    },
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "distance": {
+                    "type": "number"
+                },
+                "divs": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IBubbleDiv"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IBubbleDiv"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "opacity": {
+                    "type": "number"
+                },
+                "size": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ICharacterShape>": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "font": {
+                    "type": "string"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "style": {
+                    "type": "string"
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "weight": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ICharacterShape>_1": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "font": {
+                    "type": "string"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "style": {
+                    "type": "string"
+                },
+                "value": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "weight": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IClickEvent>": {
+            "properties": {
+                "enable": {
+                    "description": "This property enables or disables the click event",
+                    "type": "boolean"
+                },
+                "mode": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "This property contains a [[ClickMode]] value or an array of those values.\nIf this value is an array, every mode will be used on click."
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ICollisions>": {
+            "properties": {
+                "bounce": {
+                    "$ref": "#/definitions/RecursivePartial<IBounce>"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "mode": {
+                    "enum": [
+                        "absorb",
+                        "bounce",
+                        "destroy"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IColorAnimation>": {
+            "properties": {
+                "enable": {
+                    "description": "Enables/disables the animation",
+                    "type": "boolean"
+                },
+                "speed": {
+                    "description": "Hue speed rotation (from 0 to 360 degrees)",
+                    "type": "number"
+                },
+                "sync": {
+                    "description": "Enables the sync animations for the particles created at the same time\npushed or emitter particles will be out of sync\nNot using this value will create random colors particles at the same lightness and saturation of the base color",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IConnect>": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "lineLinked": {
+                    "$ref": "#/definitions/RecursivePartial<IConnectLinks>"
+                },
+                "line_linked": {
+                    "$ref": "#/definitions/RecursivePartial<IConnectLinks>"
+                },
+                "links": {
+                    "$ref": "#/definitions/RecursivePartial<IConnectLinks>"
+                },
+                "radius": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IConnectLinks>": {
+            "properties": {
+                "opacity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ICoordinates>": {
+            "properties": {
+                "x": {
+                    "type": "number"
+                },
+                "y": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IDensity>": {
+            "properties": {
+                "area": {
+                    "type": "number"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "value_area": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IDivEvent>": {
+            "properties": {
+                "el": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "elementId": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "ids": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "mode": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "selectors": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "circle",
+                        "rectangle"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IDivEvent>_1": {
+            "properties": {
+                "el": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "elementId": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "ids": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "mode": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "selectors": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "circle",
+                        "rectangle"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IDraw>": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "lineColor": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "lineWidth": {
+                    "type": "number"
+                },
+                "stroke": {
+                    "$ref": "#/definitions/RecursivePartial<IDrawStroke>"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IDrawStroke>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "opacity": {
+                    "type": "number"
+                },
+                "width": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IEmitter>": {
+            "properties": {
+                "direction": {
+                    "description": "The direction of the emitted particles, [[MoveDirection]] is the enum used for values",
+                    "enum": [
+                        "bottom",
+                        "bottom-left",
+                        "bottom-right",
+                        "bottomLeft",
+                        "bottomRight",
+                        "left",
+                        "none",
+                        "right",
+                        "top",
+                        "top-left",
+                        "top-right",
+                        "topLeft",
+                        "topRight"
+                    ],
+                    "type": "string"
+                },
+                "life": {
+                    "$ref": "#/definitions/RecursivePartial<IEmitterLife>",
+                    "description": "The emitter life options"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>",
+                    "description": "Particles emitted customization.\nThese settings will overrides other particles settings for the particles emitted by this emitter\nParticles number options won't override anything, they will be ignored completely"
+                },
+                "position": {
+                    "$ref": "#/definitions/RecursivePartial<ICoordinates>",
+                    "description": "The relative position (in percent) of the emitter, where particles spawns.\nIf size is specified the position will be the center of the size options"
+                },
+                "rate": {
+                    "$ref": "#/definitions/RecursivePartial<IEmitterRate>",
+                    "description": "The particles emitting rate options"
+                },
+                "size": {
+                    "$ref": "#/definitions/IEmitterSize",
+                    "description": "The size of the particles emitter area"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IEmitter>_1": {
+            "properties": {
+                "direction": {
+                    "description": "The direction of the emitted particles, [[MoveDirection]] is the enum used for values",
+                    "enum": [
+                        "bottom",
+                        "bottom-left",
+                        "bottom-right",
+                        "bottomLeft",
+                        "bottomRight",
+                        "left",
+                        "none",
+                        "right",
+                        "top",
+                        "top-left",
+                        "top-right",
+                        "topLeft",
+                        "topRight"
+                    ],
+                    "type": "string"
+                },
+                "life": {
+                    "$ref": "#/definitions/RecursivePartial<IEmitterLife>",
+                    "description": "The emitter life options"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>",
+                    "description": "Particles emitted customization.\nThese settings will overrides other particles settings for the particles emitted by this emitter\nParticles number options won't override anything, they will be ignored completely"
+                },
+                "position": {
+                    "$ref": "#/definitions/RecursivePartial<ICoordinates>",
+                    "description": "The relative position (in percent) of the emitter, where particles spawns.\nIf size is specified the position will be the center of the size options"
+                },
+                "rate": {
+                    "$ref": "#/definitions/RecursivePartial<IEmitterRate>",
+                    "description": "The particles emitting rate options"
+                },
+                "size": {
+                    "$ref": "#/definitions/IEmitterSize",
+                    "description": "The size of the particles emitter area"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IEmitterLife>": {
+            "properties": {
+                "count": {
+                    "description": "The count of lives the particles emitter has.\nIf <= 0 or not specified infinity will be the value.\nIf the count is > 0 it will spawn only that number of times then it'll be destroyed and removed",
+                    "type": "number"
+                },
+                "delay": {
+                    "description": "The delay between any spawn, except first.",
+                    "type": "number"
+                },
+                "duration": {
+                    "description": "The duration of any emitter life.\nIf <= 0 or  not specified infinity will be the value.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IEmitterRate>": {
+            "properties": {
+                "delay": {
+                    "description": "The emitting velocity, how many seconds will pass between the next particles creation\nDecimal values allowed",
+                    "type": "number"
+                },
+                "quantity": {
+                    "description": "The emitting quantity, how many particles will be created at every creation event",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IEvents>": {
+            "properties": {
+                "onClick": {
+                    "$ref": "#/definitions/RecursivePartial<IClickEvent>",
+                    "description": "The canvas click event\n[[include:Options/Interactivity/Click.md]]"
+                },
+                "onDiv": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IDivEvent>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IDivEvent>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "onHover": {
+                    "$ref": "#/definitions/RecursivePartial<IHoverEvent>",
+                    "description": "[[include:Options/Interactivity/Hover.md]]"
+                },
+                "onclick": {
+                    "$ref": "#/definitions/RecursivePartial<IClickEvent>",
+                    "description": "The canvas click event\n[[include:Options/Interactivity/Click.md]]"
+                },
+                "ondiv": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IDivEvent>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IDivEvent>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "onhover": {
+                    "$ref": "#/definitions/RecursivePartial<IHoverEvent>",
+                    "description": "[[include:Options/Interactivity/Hover.md]]"
+                },
+                "resize": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IGrab>": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "lineLinked": {
+                    "$ref": "#/definitions/RecursivePartial<IGrabLinks>"
+                },
+                "line_linked": {
+                    "$ref": "#/definitions/RecursivePartial<IGrabLinks>"
+                },
+                "links": {
+                    "$ref": "#/definitions/RecursivePartial<IGrabLinks>"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IGrabLinks>": {
+            "properties": {
+                "blink": {
+                    "type": "boolean"
+                },
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "consent": {
+                    "type": "boolean"
+                },
+                "opacity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IHoverEvent>": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "mode": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "parallax": {
+                    "$ref": "#/definitions/RecursivePartial<IParallax>"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IImageShape>": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "height": {
+                    "type": "number"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "replaceColor": {
+                    "type": "boolean"
+                },
+                "replace_color": {
+                    "type": "boolean"
+                },
+                "src": {
+                    "type": "string"
+                },
+                "width": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IImageShape>_1": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "height": {
+                    "type": "number"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "replaceColor": {
+                    "type": "boolean"
+                },
+                "replace_color": {
+                    "type": "boolean"
+                },
+                "src": {
+                    "type": "string"
+                },
+                "width": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IInfection>": {
+            "properties": {
+                "cure": {
+                    "description": "This property specifies if particles can turn back to the original state after being infected",
+                    "type": "boolean"
+                },
+                "delay": {
+                    "description": "The infection delay of the new infected particles, initial infected particles won't be affected.",
+                    "type": "number"
+                },
+                "enable": {
+                    "description": "Enables the infection animations",
+                    "type": "boolean"
+                },
+                "infections": {
+                    "description": "The initial number of infected particles",
+                    "type": "number"
+                },
+                "stages": {
+                    "description": "This property contains all the infection stages configurations, array of [[IInfectionStage]]",
+                    "items": {
+                        "$ref": "#/definitions/RecursivePartial<IInfectionStage>"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IInfectionStage>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Infection stage particle color"
+                },
+                "duration": {
+                    "description": "Infection stage duration, after this time has passed it will go to the next stage,\nresets to first or turn back to normal if cure is enabled.",
+                    "type": "number"
+                },
+                "infectedStage": {
+                    "description": "The infected stage set to the infected particles by the current stage",
+                    "type": "number"
+                },
+                "radius": {
+                    "description": "Infection stage contagious area radius, if 0 only particles touching would be affected",
+                    "type": "number"
+                },
+                "rate": {
+                    "description": "Infection rate, the higher it is, the more particles will be infected.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IInline>": {
+            "properties": {
+                "arrangement": {
+                    "enum": [
+                        "equidistant",
+                        "one-per-point",
+                        "onePerPoint",
+                        "per-point",
+                        "perPoint",
+                        "random-length",
+                        "random-point",
+                        "randomLength",
+                        "randomPoint"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IInteractivity&{modes:IModes&{absorbers:SingleOrMultiple<IAbsorber>;};}&{modes:IModes&{emitters:SingleOrMultiple<IEmitter>;};}>": {
+            "properties": {
+                "detect_on": {
+                    "enum": [
+                        "canvas",
+                        "parent",
+                        "window"
+                    ],
+                    "type": "string"
+                },
+                "detectsOn": {
+                    "description": "Where the mouse events will be detected\nIf set to `canvas` only the particles canvas will be target\nIf set to `parent` only the particles canvas parent will be the target\nIf set to `window` every area will be the target",
+                    "enum": [
+                        "canvas",
+                        "parent",
+                        "window"
+                    ],
+                    "type": "string"
+                },
+                "events": {
+                    "$ref": "#/definitions/RecursivePartial<IEvents>",
+                    "description": "Interaction events options, this configures which events are enabled and which modes should be used"
+                },
+                "modes": {
+                    "$ref": "#/definitions/RecursivePartial<IModes&{absorbers:SingleOrMultiple<IAbsorber>;}&{emitters:SingleOrMultiple<IEmitter>;}>",
+                    "description": "Interaction modes options, this configures every mode behavior"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILife>": {
+            "properties": {
+                "count": {
+                    "type": "number"
+                },
+                "delay": {
+                    "$ref": "#/definitions/RecursivePartial<ILifeDelay>"
+                },
+                "duration": {
+                    "$ref": "#/definitions/RecursivePartial<ILifeDuration>"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILifeDelay>": {
+            "properties": {
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "sync": {
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILifeDuration>": {
+            "properties": {
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "sync": {
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILight>": {
+            "properties": {
+                "area": {
+                    "$ref": "#/definitions/RecursivePartial<ILightArea>"
+                },
+                "shadow": {
+                    "$ref": "#/definitions/RecursivePartial<ILightShadow>"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILightArea>": {
+            "properties": {
+                "gradient": {
+                    "$ref": "#/definitions/RecursivePartial<ILightGradient>"
+                },
+                "radius": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILightGradient>": {
+            "properties": {
+                "start": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "stop": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILightShadow>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "length": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILinks>": {
+            "properties": {
+                "blink": {
+                    "description": "Enables random blinking, if set to true and [[color]] is set to \"random\"\nthe link will have a random color each frame resulting in a blinking animation",
+                    "type": "boolean"
+                },
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "Link line color, can be a string or an [[IColor]] object.\nIf the value is \"random\", if [[blink]] is `true` sets a random color each frame,\nif [[consent]] is `true` a random color is used for all links,\nif [[blink]] and [[consent]] are false the color will be a gradient with the two linked particles color"
+                },
+                "consent": {
+                    "description": "If enabled the links will have a single random color, if [[color]] value is \"random\"",
+                    "type": "boolean"
+                },
+                "distance": {
+                    "description": "Sets the maximum particles link line length",
+                    "type": "number"
+                },
+                "enable": {
+                    "description": "Enables the particles links",
+                    "type": "boolean"
+                },
+                "frequency": {
+                    "type": "number"
+                },
+                "id": {
+                    "description": "Sets the link id, if two particles have a different link id they won't link together",
+                    "type": "string"
+                },
+                "opacity": {
+                    "description": "Sets the maximum link opacity",
+                    "type": "number"
+                },
+                "shadow": {
+                    "$ref": "#/definitions/RecursivePartial<ILinksShadow>",
+                    "description": "Enables the link line shadow\n**Shadows in canvas are really heavy and this can affect negatively on performances, use with caution**"
+                },
+                "triangles": {
+                    "$ref": "#/definitions/RecursivePartial<ILinksTriangle>",
+                    "description": "Fills the triangles made by link lines"
+                },
+                "warp": {
+                    "description": "Enable link lines warp, linking particles between edges like there's a warp portal at the edges",
+                    "type": "boolean"
+                },
+                "width": {
+                    "description": "Sets the link line width",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILinksShadow>": {
+            "properties": {
+                "blur": {
+                    "type": "number"
+                },
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ILinksTriangle>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "frequency": {
+                    "type": "number"
+                },
+                "opacity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IManualParticle>": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>",
+                    "description": "Particle options, this properties will override the general particles configuration"
+                },
+                "position": {
+                    "$ref": "#/definitions/ICoordinates",
+                    "description": "Particle position in canvas size percent, if undefined a random position will be used"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IModes&{absorbers:SingleOrMultiple<IAbsorber>;}&{emitters:SingleOrMultiple<IEmitter>;}>": {
+            "properties": {
+                "absorbers": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IAbsorber>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IAbsorber>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "attract": {
+                    "$ref": "#/definitions/RecursivePartial<IAttract>_1"
+                },
+                "bubble": {
+                    "$ref": "#/definitions/RecursivePartial<IBubble>"
+                },
+                "connect": {
+                    "$ref": "#/definitions/RecursivePartial<IConnect>"
+                },
+                "emitters": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IEmitter>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IEmitter>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "grab": {
+                    "$ref": "#/definitions/RecursivePartial<IGrab>"
+                },
+                "light": {
+                    "$ref": "#/definitions/RecursivePartial<ILight>"
+                },
+                "push": {
+                    "$ref": "#/definitions/RecursivePartial<IPush>"
+                },
+                "remove": {
+                    "$ref": "#/definitions/RecursivePartial<IRemove>"
+                },
+                "repulse": {
+                    "$ref": "#/definitions/RecursivePartial<IRepulse>"
+                },
+                "slow": {
+                    "$ref": "#/definitions/RecursivePartial<ISlow>"
+                },
+                "trail": {
+                    "$ref": "#/definitions/RecursivePartial<ITrail>_1"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IMotion>": {
+            "properties": {
+                "disable": {
+                    "description": "Disables motions for users with `prefer-reduced-motion` enabled",
+                    "type": "boolean"
+                },
+                "reduce": {
+                    "$ref": "#/definitions/RecursivePartial<IMotionReduce>",
+                    "description": "Reduce motion settings for users with `prefer-reduced-motion` enabled\nIf [[disable]] is `true` these values will be ignored"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IMotionReduce>": {
+            "properties": {
+                "factor": {
+                    "description": "Factor used to reduce motion, the higher the value, the higher the motion reduction",
+                    "type": "number"
+                },
+                "value": {
+                    "description": "Reduces motion settings for users with `prefer-reduced-motion` enabled",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IMove>": {
+            "properties": {
+                "angle": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IMoveAngle"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ]
+                },
+                "attract": {
+                    "$ref": "#/definitions/RecursivePartial<IAttract>"
+                },
+                "bounce": {
+                    "type": "boolean"
+                },
+                "collisions": {
+                    "type": "boolean"
+                },
+                "direction": {
+                    "enum": [
+                        "bottom",
+                        "bottom-left",
+                        "bottom-right",
+                        "bottomLeft",
+                        "bottomRight",
+                        "left",
+                        "none",
+                        "right",
+                        "top",
+                        "top-left",
+                        "top-right",
+                        "topLeft",
+                        "topRight"
+                    ],
+                    "type": "string"
+                },
+                "distance": {
+                    "type": "number"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "gravity": {
+                    "$ref": "#/definitions/RecursivePartial<IMoveGravity>"
+                },
+                "noise": {
+                    "$ref": "#/definitions/RecursivePartial<INoise>"
+                },
+                "outMode": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                },
+                "outModes": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IOutModes"
+                        },
+                        {
+                            "enum": [
+                                "bounce",
+                                "bounce-horizontal",
+                                "bounce-vertical",
+                                "bounceHorizontal",
+                                "bounceVertical",
+                                "destroy",
+                                "none",
+                                "out"
+                            ],
+                            "type": "string"
+                        }
+                    ]
+                },
+                "out_mode": {
+                    "enum": [
+                        "bounce",
+                        "bounce-horizontal",
+                        "bounce-vertical",
+                        "bounceHorizontal",
+                        "bounceVertical",
+                        "destroy",
+                        "none",
+                        "out"
+                    ],
+                    "type": "string"
+                },
+                "random": {
+                    "type": "boolean"
+                },
+                "size": {
+                    "type": "boolean"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "straight": {
+                    "type": "boolean"
+                },
+                "trail": {
+                    "$ref": "#/definitions/RecursivePartial<ITrail>"
+                },
+                "vibrate": {
+                    "type": "boolean"
+                },
+                "warp": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IMove>_1": {
+            "properties": {
+                "radius": {
+                    "type": "number"
+                },
+                "type": {
+                    "enum": [
+                        "path",
+                        "radius"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IMoveGravity>": {
+            "properties": {
+                "acceleration": {
+                    "type": "number"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "maxSpeed": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<INoise>": {
+            "properties": {
+                "delay": {
+                    "$ref": "#/definitions/RecursivePartial<IValueWithRandom>"
+                },
+                "enable": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IOpacity>": {
+            "properties": {
+                "anim": {
+                    "$ref": "#/definitions/RecursivePartial<IOpacityAnimation>"
+                },
+                "animation": {
+                    "$ref": "#/definitions/RecursivePartial<IOpacityAnimation>"
+                },
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IOpacityAnimation>": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "minimumValue": {
+                    "type": "number"
+                },
+                "opacity_min": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "sync": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IOptions>": {
+            "properties": {
+                "absorbers": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IAbsorber>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IAbsorber>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "autoPlay": {
+                    "description": "Sets if the animations should start automatically or manually",
+                    "type": "boolean"
+                },
+                "background": {
+                    "$ref": "#/definitions/RecursivePartial<IBackground>",
+                    "description": "Background options, these background options will be used to the canvas element, they are all CSS properties"
+                },
+                "backgroundMask": {
+                    "$ref": "#/definitions/RecursivePartial<IBackgroundMask>",
+                    "description": "Background Mask options, what's behind the canvas will become hidden and particles will uncover it"
+                },
+                "backgroundMode": {
+                    "$ref": "#/definitions/RecursivePartial<IBackgroundMode>",
+                    "description": "Sets the animated background mode for particles canvas bringing it to the back"
+                },
+                "detectRetina": {
+                    "description": "Enables the retina detection, if disabled the ratio used by canvas will be always 1 and not the device setting.",
+                    "type": "boolean"
+                },
+                "emitters": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IEmitter>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IEmitter>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "fpsLimit": {
+                    "description": "The FPS (Frame Per Second) limit applied to all particles animations.",
+                    "type": "number"
+                },
+                "fps_limit": {
+                    "description": "The Frame Per Second limit applied to all particles animations.",
+                    "type": "number"
+                },
+                "infection": {
+                    "$ref": "#/definitions/RecursivePartial<IInfection>",
+                    "description": "The infection options"
+                },
+                "interactivity": {
+                    "$ref": "#/definitions/RecursivePartial<IInteractivity&{modes:IModes&{absorbers:SingleOrMultiple<IAbsorber>;};}&{modes:IModes&{emitters:SingleOrMultiple<IEmitter>;};}>",
+                    "description": "The particles interaction options"
+                },
+                "manualParticles": {
+                    "description": "Particles inserted at load time with a specific position",
+                    "items": {
+                        "$ref": "#/definitions/RecursivePartial<IManualParticle>"
+                    },
+                    "type": "array"
+                },
+                "motion": {
+                    "$ref": "#/definitions/RecursivePartial<IMotion>",
+                    "description": "Handles user's preferences about motion"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>",
+                    "description": "The particles options"
+                },
+                "pauseOnBlur": {
+                    "description": "Enables or disabled the animation on window blur",
+                    "type": "boolean"
+                },
+                "pauseOnOutsideViewport": {
+                    "description": "Enable or disabled the animation if the element is outside the viewport",
+                    "type": "boolean"
+                },
+                "polygon": {
+                    "$ref": "#/definitions/RecursivePartial<IPolygonMask>",
+                    "description": "[[include:Options/Plugins/PolygonMask.md]]"
+                },
+                "preset": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "This property will be used to add specified presets to the options"
+                },
+                "retina_detect": {
+                    "description": "Enables the retina detection, if disabled the ratio used by canvas will be always 1 and not the device setting.",
+                    "type": "boolean"
+                },
+                "themes": {
+                    "description": "User-defined themes that can be retrieved by the particles [[Container]]",
+                    "items": {
+                        "$ref": "#/definitions/RecursivePartial<ITheme>"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IParallax>": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "force": {
+                    "type": "number"
+                },
+                "smooth": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IParticles>": {
+            "properties": {
+                "bounce": {
+                    "$ref": "#/definitions/RecursivePartial<IBounce>"
+                },
+                "collisions": {
+                    "$ref": "#/definitions/RecursivePartial<ICollisions>"
+                },
+                "color": {
+                    "$ref": "#/definitions/RecursivePartial<IAnimatableColor>",
+                    "description": "The animatable color interface, it provides all the necessary properties to create a color animation\n[[include:Options/Particles/Color.md]]"
+                },
+                "groups": {
+                    "$ref": "#/definitions/RecursivePartial<ParticlesGroups>"
+                },
+                "life": {
+                    "$ref": "#/definitions/RecursivePartial<ILife>"
+                },
+                "lineLinked": {
+                    "$ref": "#/definitions/RecursivePartial<ILinks>",
+                    "description": "Particles Links options, this configures how the particles link together\n[[include:Options/Particles/Links.md]]"
+                },
+                "line_linked": {
+                    "$ref": "#/definitions/RecursivePartial<ILinks>",
+                    "description": "Particles Links options, this configures how the particles link together\n[[include:Options/Particles/Links.md]]"
+                },
+                "links": {
+                    "$ref": "#/definitions/RecursivePartial<ILinks>",
+                    "description": "Particles Links options, this configures how the particles link together\n[[include:Options/Particles/Links.md]]"
+                },
+                "move": {
+                    "$ref": "#/definitions/RecursivePartial<IMove>",
+                    "description": "[[include:Options/Particles/Move.md]]"
+                },
+                "number": {
+                    "$ref": "#/definitions/RecursivePartial<IParticlesNumber>",
+                    "description": "[[include:Options/Particles/Number.md]]"
+                },
+                "opacity": {
+                    "$ref": "#/definitions/RecursivePartial<IOpacity>",
+                    "description": "[[include:Options/Particles/Opacity.md]]"
+                },
+                "reduceDuplicates": {
+                    "type": "boolean"
+                },
+                "rotate": {
+                    "$ref": "#/definitions/RecursivePartial<IRotate>",
+                    "description": "[[include:Options/Particles/Rotate.md]]"
+                },
+                "shadow": {
+                    "$ref": "#/definitions/RecursivePartial<IShadow>"
+                },
+                "shape": {
+                    "$ref": "#/definitions/RecursivePartial<IShape>",
+                    "description": "[[include:Options/Particles/Shape.md]]"
+                },
+                "size": {
+                    "$ref": "#/definitions/RecursivePartial<ISize>",
+                    "description": "[[include:Options/Particles/Size.md]]"
+                },
+                "stroke": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IStroke>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IStroke>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "twinkle": {
+                    "$ref": "#/definitions/RecursivePartial<ITwinkle>",
+                    "description": "[[include:Options/Particles/Twinkle.md]]"
+                },
+                "zIndex": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IParticlesNumber>": {
+            "properties": {
+                "density": {
+                    "$ref": "#/definitions/RecursivePartial<IDensity>"
+                },
+                "limit": {
+                    "type": "number"
+                },
+                "max": {
+                    "type": "number"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IPolygonMask>": {
+            "properties": {
+                "data": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/ILocalSvg"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "draw": {
+                    "$ref": "#/definitions/RecursivePartial<IDraw>"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "inline": {
+                    "$ref": "#/definitions/RecursivePartial<IInline>"
+                },
+                "inlineArrangement": {
+                    "enum": [
+                        "equidistant",
+                        "one-per-point",
+                        "onePerPoint",
+                        "per-point",
+                        "perPoint",
+                        "random-length",
+                        "random-point",
+                        "randomLength",
+                        "randomPoint"
+                    ],
+                    "type": "string"
+                },
+                "move": {
+                    "$ref": "#/definitions/RecursivePartial<IMove>_1"
+                },
+                "position": {
+                    "$ref": "#/definitions/ICoordinates"
+                },
+                "scale": {
+                    "type": "number"
+                },
+                "type": {
+                    "enum": [
+                        "inline",
+                        "inside",
+                        "none",
+                        "outside"
+                    ],
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IPolygonShape>": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "nb_sides": {
+                    "type": "number"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "sides": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IPolygonShape>_1": {
+            "properties": {
+                "close": {
+                    "type": "boolean"
+                },
+                "fill": {
+                    "type": "boolean"
+                },
+                "nb_sides": {
+                    "type": "number"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "sides": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IPush>": {
+            "properties": {
+                "particles_nb": {
+                    "type": "number"
+                },
+                "quantity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IRemove>": {
+            "properties": {
+                "particles_nb": {
+                    "type": "number"
+                },
+                "quantity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IRepulse>": {
+            "properties": {
+                "distance": {
+                    "type": "number"
+                },
+                "divs": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRepulseDiv"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/IRepulseDiv"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IRotate>": {
+            "properties": {
+                "animation": {
+                    "$ref": "#/definitions/RecursivePartial<IRotateAnimation>"
+                },
+                "direction": {
+                    "enum": [
+                        "clockwise",
+                        "counter-clockwise",
+                        "counterClockwise",
+                        "random"
+                    ],
+                    "type": "string"
+                },
+                "path": {
+                    "type": "boolean"
+                },
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IRotateAnimation>": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "sync": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IShadow>": {
+            "properties": {
+                "blur": {
+                    "type": "number"
+                },
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "offset": {
+                    "$ref": "#/definitions/RecursivePartial<ICoordinates>"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IShape>": {
+            "properties": {
+                "character": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<ICharacterShape>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<ICharacterShape>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "custom": {
+                    "$ref": "#/definitions/RecursivePartial<ShapeData>"
+                },
+                "image": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IImageShape>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IImageShape>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "images": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IImageShape>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IImageShape>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "options": {
+                    "$ref": "#/definitions/RecursivePartial<ShapeData>"
+                },
+                "polygon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IPolygonShape>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IPolygonShape>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "stroke": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RecursivePartial<IStroke>"
+                        },
+                        {
+                            "items": {
+                                "$ref": "#/definitions/RecursivePartial<IStroke>_1"
+                            },
+                            "type": "array"
+                        }
+                    ]
+                },
+                "type": {
+                    "anyOf": [
+                        {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ISize>": {
+            "properties": {
+                "anim": {
+                    "$ref": "#/definitions/RecursivePartial<ISizeAnimation>"
+                },
+                "animation": {
+                    "$ref": "#/definitions/RecursivePartial<ISizeAnimation>"
+                },
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ISizeAnimation>": {
+            "properties": {
+                "destroy": {
+                    "enum": [
+                        "max",
+                        "min",
+                        "none"
+                    ],
+                    "type": "string"
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "minimumValue": {
+                    "type": "number"
+                },
+                "size_min": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "startValue": {
+                    "enum": [
+                        "max",
+                        "min",
+                        "random"
+                    ],
+                    "type": "string"
+                },
+                "sync": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ISlow>": {
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "factor": {
+                    "type": "number"
+                },
+                "radius": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IStroke>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IAnimatableColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The stroke color, can be animated too"
+                },
+                "opacity": {
+                    "description": "The stroke opacity",
+                    "type": "number"
+                },
+                "width": {
+                    "description": "The stroke line width",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IStroke>_1": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IAnimatableColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The stroke color, can be animated too"
+                },
+                "opacity": {
+                    "description": "The stroke opacity",
+                    "type": "number"
+                },
+                "width": {
+                    "description": "The stroke line width",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ITheme>": {
+            "properties": {
+                "default": {
+                    "$ref": "#/definitions/RecursivePartial<IThemeDefault>",
+                    "description": "Options to set the default theme"
+                },
+                "name": {
+                    "description": "Theme name, use it when changing theme",
+                    "type": "string"
+                },
+                "options": {
+                    "$ref": "#/definitions/RecursivePartial<IOptions>",
+                    "description": "All options the theme will override"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IThemeDefault>": {
+            "properties": {
+                "mode": {
+                    "anyOf": [
+                        {
+                            "enum": [
+                                "anchor",
+                                "any",
+                                "big",
+                                "blink",
+                                "bold",
+                                "charAt",
+                                "charCodeAt",
+                                "codePointAt",
+                                "concat",
+                                "dark",
+                                "endsWith",
+                                "fixed",
+                                "fontcolor",
+                                "fontsize",
+                                "includes",
+                                "indexOf",
+                                "italics",
+                                "lastIndexOf",
+                                "length",
+                                "light",
+                                "link",
+                                "localeCompare",
+                                "match",
+                                "normalize",
+                                "padEnd",
+                                "padStart",
+                                "repeat",
+                                "replace",
+                                "search",
+                                "slice",
+                                "small",
+                                "split",
+                                "startsWith",
+                                "strike",
+                                "sub",
+                                "substr",
+                                "substring",
+                                "sup",
+                                "toLocaleLowerCase",
+                                "toLocaleUpperCase",
+                                "toLowerCase",
+                                "toString",
+                                "toUpperCase",
+                                "trim",
+                                "trimEnd",
+                                "trimLeft",
+                                "trimRight",
+                                "trimStart",
+                                "valueOf"
+                            ],
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ],
+                    "description": "Default theme mode\n`any`: Sets the default theme for every configuration\n`dark`: Sets the default theme when the user has dark mode set\n`light`: Sets the default theme when the user has light mode set\nIf `dark` or `light` themes are set, the `any` default theme will be used only for unset modes"
+                },
+                "value": {
+                    "description": "Sets or unsets the default flag to this theme and mode",
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ITrail>": {
+            "properties": {
+                "enable": {
+                    "type": "boolean"
+                },
+                "fillColor": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "length": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ITrail>_1": {
+            "properties": {
+                "delay": {
+                    "type": "number"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<IParticles>"
+                },
+                "quantity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ITwinkle>": {
+            "properties": {
+                "lines": {
+                    "$ref": "#/definitions/RecursivePartial<ITwinkleValues>"
+                },
+                "particles": {
+                    "$ref": "#/definitions/RecursivePartial<ITwinkleValues>"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ITwinkleValues>": {
+            "properties": {
+                "color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IColor"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "frequency": {
+                    "type": "number"
+                },
+                "opacity": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<IValueWithRandom>": {
+            "properties": {
+                "random": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IRandom"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "RecursivePartial<ParticlesGroups>": {
+            "type": "object"
+        },
+        "RecursivePartial<ShapeData>": {
+            "type": "object"
+        }
+    }
+}
+

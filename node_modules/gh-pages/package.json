@@ -1,0 +1,61 @@
+{
+  "name": "gh-pages",
+  "version": "3.1.0",
+  "description": "Publish to a gh-pages branch on GitHub (or any other branch on any other remote)",
+  "keywords": [
+    "git",
+    "gh-pages",
+    "github"
+  ],
+  "author": {
+    "name": "Tim Schaub",
+    "url": "http://tschaub.net/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/tschaub/gh-pages",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tschaub/gh-pages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tschaub/gh-pages/issues"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint lib test bin plugin.js",
+    "pretest": "npm run lint",
+    "test": "mocha --recursive test"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "commander": "^2.18.0",
+    "email-addresses": "^3.0.1",
+    "filenamify-url": "^1.0.0",
+    "find-cache-dir": "^3.3.1",
+    "fs-extra": "^8.1.0",
+    "globby": "^6.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "dir-compare": "^1.8.0",
+    "eslint": "^7.3.0",
+    "eslint-config-tschaub": "^13.1.0",
+    "mocha": "^8.0.1",
+    "sinon": "^8.0.4",
+    "tmp": "^0.2.1"
+  },
+  "bin": {
+    "gh-pages": "bin/gh-pages.js",
+    "gh-pages-clean": "bin/gh-pages-clean.js"
+  },
+  "eslintConfig": {
+    "extends": "tschaub"
+  }
+}

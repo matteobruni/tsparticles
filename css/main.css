@@ -1,0 +1,138 @@
+@font-face {
+  font-family: Polya;
+  src: url(https://raw.githubusercontent.com/matteobruni/tsparticles/gh-pages/fonts/Polya.otf);
+}
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  line-height: 1;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.github {
+  bottom: 10px;
+  right: 10px;
+  padding: 0 12px 6px;
+  position: fixed;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #000;
+}
+
+.github a {
+  color: #000;
+}
+
+.github a:hover,
+.github a:link,
+.github a:visited,
+.github a:active {
+  color: #000;
+  text-decoration: none;
+}
+
+.github img {
+  height: 30px;
+}
+
+.github #gh-project {
+  font-size: 20px;
+  padding-left: 5px;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+.toggle-sidebar {
+  top: 50%;
+  left: 0;
+  font-size: 20px;
+  color: #000;
+  position: absolute;
+  padding: 3px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: #e7e7e7;
+  border: 1px solid #000;
+  border-left: none;
+}
+
+#editor {
+  background: #fff;
+}
+
+*[hidden] {
+  display: none;
+}
+
+#repulse-div {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  z-index: 200;
+}
+
+@media (min-width: 1600px) and (-webkit-device-pixel-ratio: 1) {
+  .col-xxl-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+.btn-react {
+  color: #fff;
+  background-color: #61dafb;
+  border-color: #fff;
+}
+.btn-react:hover {
+  color: #fff;
+  background-color: #5aa3c4;
+  border-color: #ccc;
+}
+.btn-react:focus, .btn-react.focus {
+  color: #fff;
+  background-color: #5aa3c4;
+  border-color: #ccc;
+  box-shadow: 0 0 0 0.2rem rgba(90, 163, 196, 0.5);
+}
+.btn-react.disabled, .btn-react:disabled {
+  color: #fff;
+  background-color: #61dafb;
+  border-color: #ccc;
+}
+.btn-react:not(:disabled):not(.disabled):active, .btn-react:not(:disabled):not(.disabled).active, .show > .btn-react.dropdown-toggle {
+  color: #fff;
+  background-color: #5aa3c4;
+  border-color: #ccc;
+}
+.btn-react:not(:disabled):not(.disabled):active:focus, .btn-react:not(:disabled):not(.disabled):active:focus, .btn-react:not(:disabled):not(.disabled):active:focus, .btn-react:not(:disabled):not(.disabled).active:focus, .btn-react:not(:disabled):not(.disabled).active:focus, .btn-react:not(:disabled):not(.disabled).active:focus, .show > .btn-react.dropdown-toggle:focus, .show > .btn-react.dropdown-toggle:focus, .show > .btn-react.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(90, 163, 196, 0.5);
+}
+
+#stats, .count-particles {
+  -webkit-user-select: none;
+}
+
+#stats {
+  overflow: hidden;
+}
+
+#stats-graph canvas {
+  border-radius: 3px 3px 0 0;
+}
+
+.count-particles {
+  border-radius: 0 0 3px 3px;
+}
+
+/*# sourceMappingURL=main.css.map */

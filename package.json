@@ -1,0 +1,32 @@
+{
+  "name": "tsparticles-website",
+  "version": "1.19.2",
+  "private": true,
+  "description": "tsParticles Official Website",
+  "main": "index.html",
+  "scripts": {
+    "clear:cache": "rimraf -f ./node_modules/.cache",
+    "clear:docs": "rimraf -f ./docs",
+    "build:js": "minify ./js/demo.js > ./js/demo.min.js && minify ./js/404.js > ./js/404.min.js",
+    "build:css": "sass ./css/main.scss ./css/main.css && minify ./css/main.css > ./css/main.min.css && sass ./css/404.scss ./css/404.css && minify ./css/404.css > ./css/404.min.css",
+    "build": "yarn build:css && yarn build:js",
+    "deploy": "yarn build && yarn clear:docs && lerna run build:docs && yarn clear:cache && node deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteobruni/tsparticles.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matteobruni/tsparticles/issues"
+  },
+  "homepage": "https://github.com/matteobruni/tsparticles#readme",
+  "dependencies": {
+    "fs-extra": "^9.1.0",
+    "gh-pages": "^3.1.0",
+    "minify": "^6.0.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.32.5"
+  }
+}

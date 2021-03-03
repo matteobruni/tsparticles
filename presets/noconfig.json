@@ -1,0 +1,13 @@
+{
+  "fullScreen": {
+    "enable": true,
+    "zIndex": 1
+  },
+  "background": {
+    "color": "#0d47a1",
+    "image": "",
+    "position": "50% 50%",
+    "repeat": "no-repeat",
+    "size": "cover"
+  }
+}

@@ -1,0 +1,469 @@
+<!doctype html>
+<html class="particles no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPlugin
+	| tsParticles - v1.19.2</title>
+	<meta name="description" content="Documentation for tsParticles - v1.19.2">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div id="tsparticles"></div>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json"
+				data-base="..">
+				<div class="field">
+					<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+					<input id="tsd-search-field" type="text" />
+				</div>
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">tsParticles - v1.19.2</a>
+				<div class="tsd-links">
+					&emsp;<a href="https://particles.js.org" class="title">Official Website</a>
+					&emsp;<a href="https://github.com/matteobruni/tsparticles" class="title">Repository</a>
+				</div>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						<input type="checkbox" id="tsd-filter-only-exported" />
+						<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						<input type="checkbox" id="tsd-animations" checked />
+						<label class="tsd-widget" for="tsd-animations">Animations</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_core_interfaces_iplugin_.html">Core/Interfaces/IPlugin</a>
+				</li>
+				<li>
+					<a href="_core_interfaces_iplugin_.iplugin.html">IPlugin</a>
+				</li>
+			</ul>
+			<h1>Interface IPlugin</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-3 col-menu col-menu-left menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Components</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/angular.html">Angular</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/react.html">React</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/vue2.html">Vue 2.x</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/vue3.html">Vue 3.x</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/svelte.html">Svelte</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/jquery.html">j<wbr>Query</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/preact.html">Preact</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/inferno.html">Inferno</a>
+					</li>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module tsd-is-external">
+						<a href="../modules/_core_interfaces_iplugin_.html">Core/<wbr>Interfaces/IPlugin</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-6 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="#pluginscustomizations" id="pluginscustomizations" style="color: inherit; text-decoration: none;">
+							<h1>Plugins/Customizations</h1>
+						</a>
+						<p>tsParticles now supports some customizations 🥳.</p>
+						<p><strong>NOW YOU CAN CREATE YOUR OWN SHAPES OR PRESETS</strong></p>
+						<a href="#creating-a-custom-shape" id="creating-a-custom-shape" style="color: inherit; text-decoration: none;">
+							<h2>Creating a custom shape</h2>
+						</a>
+						<p>You can now create a script with your own shape to use in your website or for distributing it to others. All you have to do is a drawing function, give it a name and use it in the config.</p>
+						<p>Publish your shapes with <code>tsparticles-shape</code> tag on <code>NPM</code> so everyone can find it.</p>
+						<p>You&#39;ll find a sample below.</p>
+						<a href="#spiral-sample" id="spiral-sample" style="color: inherit; text-decoration: none;">
+							<h3>Spiral sample</h3>
+						</a>
+						<p><em>spiral.js</em> - The custom shape script, you can distribute it or reuse in all your websites.</p>
+						<pre><code class="language-javascript"><span class="hljs-comment">// call this method before initializing tsParticles, this shape will be available in all of your tsParticles instances</span>
+<span class="hljs-comment">// parameters: shape name, drawing method</span>
+<span class="hljs-comment">// opacity is just for shapes that needs a differenc opacity handling like images</span>
+tsParticles.addShape(<span class="hljs-string">&quot;spiral&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">context, particle, radius, opacity</span>) </span>{
+  <span class="hljs-keyword">const</span> shapeData = particle.shapeData;
+  <span class="hljs-keyword">const</span> realWidth = (radius - shapeData.innerRadius) / shapeData.lineSpacing;
+
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; realWidth * <span class="hljs-number">10</span>; i++) {
+    <span class="hljs-keyword">const</span> angle = <span class="hljs-number">0.1</span> * i;
+    <span class="hljs-keyword">const</span> x =
+      (shapeData.innerRadius + shapeData.lineSpacing * angle) * <span class="hljs-built_in">Math</span>.cos(angle);
+    <span class="hljs-keyword">const</span> y =
+      (shapeData.innerRadius + shapeData.lineSpacing * angle) * <span class="hljs-built_in">Math</span>.sin(angle);
+
+    context.lineTo(x, y);
+  }
+});
+</code></pre>
+						<p>If you prefer using classes you can, <a href="_core_interfaces_ishapedrawer_.ishapedrawer.html">IShapeDrawer</a> interface can be implemented in your code or at least a class with four method <a href="_core_interfaces_ishapedrawer_.ishapedrawer.html#draw">draw(context, particle, radius, opacity, delta)</a>, <a href="_core_interfaces_ishapedrawer_.ishapedrawer.html#init">init(container)</a>, <a href="_core_interfaces_ishapedrawer_.ishapedrawer.html#aftereffect">afterEffect(context, particle, radius, opacity, delta)</a>, <a href="_core_interfaces_ishapedrawer_.ishapedrawer.html#destroy">destroy(container)</a> in it. You can find a sample below.</p>
+						<pre><code class="language-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpiralDrawer</span> </span>{
+  <span class="hljs-function"><span class="hljs-title">draw</span>(<span class="hljs-params">context, particle, radius, opacity, delta</span>)</span> {
+    <span class="hljs-keyword">const</span> shapeData = particle.shapeData;
+    <span class="hljs-keyword">const</span> realWidth = (radius - shapeData.innerRadius) / shapeData.lineSpacing;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; realWidth * <span class="hljs-number">10</span>; i++) {
+      <span class="hljs-keyword">const</span> angle = <span class="hljs-number">0.1</span> * i;
+      <span class="hljs-keyword">const</span> x =
+        (shapeData.innerRadius + shapeData.lineSpacing * angle) *
+        <span class="hljs-built_in">Math</span>.cos(angle);
+      <span class="hljs-keyword">const</span> y =
+        (shapeData.innerRadius + shapeData.lineSpacing * angle) *
+        <span class="hljs-built_in">Math</span>.sin(angle);
+
+      context.lineTo(x, y);
+    }
+  }
+}
+
+<span class="hljs-comment">// call this method before initializing tsParticles, this shape will be available in all of your tsParticles instances</span>
+<span class="hljs-comment">// parameters: shape name, drawer class</span>
+tsParticles.addShape(<span class="hljs-string">&quot;spiral&quot;</span>, <span class="hljs-keyword">new</span> SpiralDrawer());
+</code></pre>
+						<a href="#bubble-sample-with-after-effect" id="bubble-sample-with-after-effect" style="color: inherit; text-decoration: none;">
+							<h4>Bubble Sample (with after effect)</h4>
+						</a>
+						<p><em>bubble.js</em> - The custom shape script</p>
+						<pre><code class="language-javascript">tsParticles.addShape(
+    <span class="hljs-string">&quot;bubble&quot;</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">context, particle, radius</span>) </span>{ <span class="hljs-comment">// drawing function</span>
+        context.arc(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, radius, <span class="hljs-number">0</span>, <span class="hljs-built_in">Math</span>.PI * <span class="hljs-number">2</span>, <span class="hljs-literal">false</span>);
+    },
+    <span class="hljs-literal">undefined</span>, <span class="hljs-comment">// init function is not required</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">context, particle, radius</span>) </span>{ <span class="hljs-comment">// after effect function</span>
+        context.save();
+        context.beginPath();
+        context.arc(radius / <span class="hljs-number">3</span>, -radius / <span class="hljs-number">3</span>, radius / <span class="hljs-number">3</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">Math</span>.PI * <span class="hljs-number">2</span>, <span class="hljs-literal">false</span>);
+        context.closePath();
+        context.fillStyle = <span class="hljs-string">&quot;#fff9&quot;</span>;
+        context.fill();
+        context.restore();
+    }
+);
+</code></pre>
+						<a href="#config" id="config" style="color: inherit; text-decoration: none;">
+							<h3>Config</h3>
+						</a>
+						<p><em>config.json</em> - The config section to add to your config or in your plugin readme to teach others on how to use it.</p>
+						<pre><code class="language-javascript">{
+  <span class="hljs-comment">// [... omitted for brevity]</span>
+  <span class="hljs-string">&quot;particles&quot;</span>: {
+    <span class="hljs-comment">// [... omitted for brevity]</span>
+    <span class="hljs-string">&quot;shape&quot;</span>: {
+      <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;spiral&quot;</span>, <span class="hljs-comment">// this must match the name above, the type works as always, you can use an array with your custom shape inside</span>
+      <span class="hljs-string">&quot;custom&quot;</span>: {
+        <span class="hljs-comment">// this must match the name above, these are the values set in particle.shapeData (the first line of the method above)</span>
+        <span class="hljs-comment">// you can use array as value here too, the values will be random picked, like in standard shapes</span>
+        <span class="hljs-string">&quot;spiral&quot;</span>: {
+          <span class="hljs-string">&quot;innerRadius&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;lineSpacing&quot;</span>: <span class="hljs-number">1</span>,
+          <span class="hljs-string">&quot;close&quot;</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// this value is used by tsParticles to close the path, if you don&#x27;t want to close it set this value to false</span>
+          <span class="hljs-string">&quot;fill&quot;</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// this value is used by tsParticles to fill the shape with the particles color, if you want only the stroke set this value to false</span>
+        }
+      }
+      <span class="hljs-comment">// [... omitted for brevity]</span>
+    }
+    <span class="hljs-comment">// [... omitted for brevity]</span>
+  }
+  <span class="hljs-comment">// [... omitted for brevity]</span>
+}
+</code></pre>
+						<a href="#creating-a-custom-preset" id="creating-a-custom-preset" style="color: inherit; text-decoration: none;">
+							<h2>Creating a custom preset</h2>
+						</a>
+						<p>You can now create a script with your own preset to use in your website or for distributing it to others. All you have to do is give it a name and set all the options you need it to load correctly. Remember to not import all config, properties not needed can be omitted.</p>
+						<p>Publish your preset with <code>tsparticles-preset</code> tag on <code>NPM</code> so everyone can find it.</p>
+						<p>You&#39;ll find a sample below.</p>
+						<a href="#fire-preset-sample" id="fire-preset-sample" style="color: inherit; text-decoration: none;">
+							<h3>Fire preset sample</h3>
+						</a>
+						<p><em>fire.preset.js</em> - The custom preset script, you can distribute it or reuse in all your websites.</p>
+						<pre><code class="language-javascript"><span class="hljs-comment">// call this method before initializing tsParticles, this preset will be available in all of your tsParticles instances</span>
+<span class="hljs-comment">// parameters: preset name, preset partial options</span>
+tsParticles.addPreset(<span class="hljs-string">&quot;fire&quot;</span>, {
+  <span class="hljs-attr">fpsLimit</span>: <span class="hljs-number">40</span>,
+  <span class="hljs-attr">particles</span>: {
+    <span class="hljs-attr">number</span>: {
+      <span class="hljs-attr">value</span>: <span class="hljs-number">80</span>,
+      <span class="hljs-attr">density</span>: {
+        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">value_area</span>: <span class="hljs-number">800</span>,
+      },
+    },
+    <span class="hljs-attr">color</span>: {
+      <span class="hljs-attr">value</span>: [<span class="hljs-string">&quot;#fdcf58&quot;</span>, <span class="hljs-string">&quot;#757676&quot;</span>, <span class="hljs-string">&quot;#f27d0c&quot;</span>, <span class="hljs-string">&quot;#800909&quot;</span>, <span class="hljs-string">&quot;#f07f13&quot;</span>],
+    },
+    <span class="hljs-attr">opacity</span>: {
+      <span class="hljs-attr">value</span>: <span class="hljs-number">0.5</span>,
+      <span class="hljs-attr">random</span>: <span class="hljs-literal">true</span>,
+    },
+    <span class="hljs-attr">size</span>: {
+      <span class="hljs-attr">value</span>: <span class="hljs-number">3</span>,
+      <span class="hljs-attr">random</span>: <span class="hljs-literal">true</span>,
+    },
+    <span class="hljs-attr">move</span>: {
+      <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">speed</span>: <span class="hljs-number">6</span>,
+      <span class="hljs-attr">random</span>: <span class="hljs-literal">false</span>,
+    },
+  },
+  <span class="hljs-attr">interactivity</span>: {
+    <span class="hljs-attr">events</span>: {
+      <span class="hljs-attr">onclick</span>: {
+        <span class="hljs-attr">enable</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">mode</span>: <span class="hljs-string">&quot;push&quot;</span>,
+      },
+      <span class="hljs-attr">resize</span>: <span class="hljs-literal">true</span>,
+    },
+  },
+  <span class="hljs-attr">background</span>: {
+    <span class="hljs-attr">image</span>: <span class="hljs-string">&quot;radial-gradient(#4a0000, #000)&quot;</span>,
+  },
+});
+</code></pre>
+						<p><em>config.json</em> - The config section to add to your config or in your plugin readme to teach others on how to use it.</p>
+						<pre><code class="language-javascript">{
+  <span class="hljs-string">&quot;preset&quot;</span>: <span class="hljs-string">&quot;fire&quot;</span> <span class="hljs-comment">// this should match the name above, it can be used in array values too, it will be loaded in order like everyone else</span>
+}
+</code></pre>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IPlugin</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_plugins_absorbers_absorbersplugin_.absorbersplugin-1.html" class="tsd-signature-type">AbsorbersPlugin</a></li>
+					<li><a href="../classes/_plugins_emitters_emittersplugin_.emittersplugin-1.html" class="tsd-signature-type">EmittersPlugin</a></li>
+					<li><a href="../classes/_plugins_polygonmask_polygonmaskplugin_.polygonmaskplugin-1.html" class="tsd-signature-type">PolygonMaskPlugin</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_core_interfaces_iplugin_.iplugin.html#id" class="tsd-kind-icon">id</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-external"><a href="_core_interfaces_iplugin_.iplugin.html#getplugin" class="tsd-kind-icon">get<wbr>Plugin</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-external"><a href="_core_interfaces_iplugin_.iplugin.html#loadoptions" class="tsd-kind-icon">load<wbr>Options</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-external"><a href="_core_interfaces_iplugin_.iplugin.html#needsplugin" class="tsd-kind-icon">needs<wbr>Plugin</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Interfaces/IPlugin.ts#L16">Core/Interfaces/IPlugin.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+					<a name="getplugin" class="tsd-anchor"></a>
+					<h3>get<wbr>Plugin</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Plugin<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_core_interfaces_icontainerplugin_.icontainerplugin.html" class="tsd-signature-type">IContainerPlugin</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Interfaces/IPlugin.ts#L20">Core/Interfaces/IPlugin.ts:20</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>container: <a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_core_interfaces_icontainerplugin_.icontainerplugin.html" class="tsd-signature-type">IContainerPlugin</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+					<a name="loadoptions" class="tsd-anchor"></a>
+					<h3>load<wbr>Options</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<wbr>Options<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../classes/_options_classes_options_.options.html" class="tsd-signature-type">Options</a>, source<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Interfaces/IPlugin.ts#L22">Core/Interfaces/IPlugin.ts:22</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <a href="../classes/_options_classes_options_.options.html" class="tsd-signature-type">Options</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> source: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+					<a name="needsplugin" class="tsd-anchor"></a>
+					<h3>needs<wbr>Plugin</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">needs<wbr>Plugin<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/Core/Interfaces/IPlugin.ts#L18">Core/Interfaces/IPlugin.ts:18</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-3 col-menu col-menu-right menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-is-external">
+						<a href="_core_interfaces_iplugin_.iplugin.html" class="tsd-kind-icon">IPlugin</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+								<a href="_core_interfaces_iplugin_.iplugin.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+								<a href="_core_interfaces_iplugin_.iplugin.html#getplugin" class="tsd-kind-icon">get<wbr>Plugin</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+								<a href="_core_interfaces_iplugin_.iplugin.html#loadoptions" class="tsd-kind-icon">load<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+								<a href="_core_interfaces_iplugin_.iplugin.html#needsplugin" class="tsd-kind-icon">needs<wbr>Plugin</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span
+				class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span
+				class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-161253125-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

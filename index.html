@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="shortcut icon" href="https://particles.js.org/tsParticles-64.png"/>
+    <meta name="description"
+          content="tsParticles - Easily create highly customizable particles animations and use them as animated backgrounds for your website. Ready to use components available for React, Vue.js (2.x and 3.x), Angular, Svelte, jQuery, Preact, Inferno."/>
+    <meta name="author" content="Matteo Bruni"/>
+    <meta name="keyword"
+          content="HTML, CSS, JavaScript, Particles, Particles.js, Animations, React, Vue, Angular, Vue.js, Svelte"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@HollowMatt_ITA"/>
+    <meta name="twitter:image:src" content="https://particles.js.org/images/demo.png"/>
+
+    <meta property="og:title" content="tsParticles - JavaScript Particles animations for your website"/>
+    <meta property="og:site_name" content="tsParticles"/>
+    <meta property="og:url" content="https://particles.js.org/"/>
+    <meta property="og:description"
+          content="Easily create highly customizable particles animations and use them as animated backgrounds for your website. Ready to use components available for React, Vue.js (2.x and 3.x), Angular, Svelte, jQuery, Preact, Inferno."/>
+    <meta property="og:image" content="https://particles.js.org/images/demo.png"/>
+
+    <title>tsParticles | JavaScript Particles animations for your website</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/ir-black.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"
+          integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsoneditor@8.6.3/dist/jsoneditor.min.css"
+          integrity="sha256-thQmdfrg82/N5u9ybMxam1RKdSfaxOPCgl5q9AI/mDI=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/object-gui@1.0.11/dist/css/object-gui.min.css"
+          integrity="sha256-qPg70ikwqwc6oHBUkTvAnpYVvPFs+XsxjMNjhiBBUjk=" crossorigin="anonymous"/>
+
+    <link href="css/main.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161253125-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+
+        gtag("config", "UA-161253125-1", {
+            "custom_map": {
+                "dimension1": "dimension_codepen_data",
+                "dimension2": "dimension_editor_data",
+                "dimension3": "dimension_editor_error",
+                "dimension4": "dimension_editor_mode",
+                "dimension5": "dimension_particles_export_config",
+                "dimension6": "dimension_new_preset",
+                "dimension7": "dimension_old_preset",
+                "dimension8": "dimension_status",
+                "dimension9": "dimension_particles_options"
+            }
+        });
+
+        gtag("config", "AW-1021008757");
+        gtag("event", "conversion", {"send_to": "AW-1021008757/3t7QCNqulswBEPW27eYD"});
+    </script>
+</head>
+
+<body>
+<div id="tsparticles" style="position: fixed; z-index: -1;"></div>
+<div class="container h-100 text-white" style="overflow: auto;">
+    <div class="row align-items-center h-100">
+        <header class="d-md-none d-block">
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+                <img src="https://particles.js.org/images/tsParticles-60.png" width="30" height="30"
+                     class="d-inline-block align-top" alt=""/>
+                <a class="navbar-brand" href="#">tsParticles</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarFrameworksDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Frameworks
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarFrameworksDropdown">
+                                <a class="dropdown-item" href="https://github.com/matteobruni/tsparticles/"
+                                   target="_blank"><i
+                                        class="fab fa-js fa-fw"></i> No Framework</a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/matteobruni/tsparticles/tree/main/components/angular"
+                                   target="_blank"><i
+                                        class="fab fa-angular fa-fw"></i> Angular</a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/matteobruni/tsparticles/tree/main/components/react"
+                                   target="_blank"><i
+                                        class="fab fa-react fa-fw"></i> React</a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/matteobruni/tsparticles/tree/main/components/vue"
+                                   target="_blank"><i class="fab fa-vuejs fa-fw"></i> Vue 2.x</a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/matteobruni/tsparticles/tree/main/components/vue3"
+                                   target="_blank"><i class="fab fa-vuejs fa-fw"></i> Vue 3.x</a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/matteobruni/tsparticles/tree/main/components/inferno"
+                                   target="_blank">Inferno</a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/matteobruni/tsparticles/tree/main/components/jquery"
+                                   target="_blank">jQuery</a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/matteobruni/tsparticles/tree/main/components/preact"
+                                   target="_blank">Preact</a>
+                                <a class="dropdown-item"
+                                   href="https://github.com/matteobruni/tsparticles/tree/main/components/svelte"
+                                   target="_blank">Svelte</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="col" style="background: rgba(0,0,0, 0); border-radius: 20px;">
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <h1 style="font-family: Polya; font-size: 6vmin; white-space: nowrap;">ts <span
+                            style="font-size: 3em;">P</span><span style="font-size: 2em;">articles</span></h1>
+                    <a class="github-button" href="https://github.com/matteobruni/tsparticles/subscription"
+                       data-icon="octicon-eye" data-size="large" data-show-count="true"
+                       aria-label="Watch matteobruni/tsparticles on GitHub">Watch</a>
+                    <a class="github-button" href="https://github.com/matteobruni/tsparticles" data-icon="octicon-star"
+                       data-size="large" data-show-count="true"
+                       aria-label="Star matteobruni/tsparticles on GitHub">Star</a>
+                    <a class="github-button" href="https://github.com/matteobruni/tsparticles/fork"
+                       data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
+                       aria-label="Fork matteobruni/tsparticles on GitHub">Fork</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <h2>Samples</h2>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6 col-lg-4 offset-lg-2">
+                    <a href="samples/index.html" class="btn btn-block btn-primary">
+                        <i class="far fa-folder-open fa-fw"></i> Demos
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="https://codepen.io/collection/DPOage" target="_blank" class="btn btn-block btn-secondary">
+                        <i class="fab fa-codepen fa-fw"></i> CodePen
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <h2>Discussions</h2>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6 col-lg-3"><a class="btn btn-block btn-secondary"
+                                                  href="https://github.com/matteobruni/tsparticles/discussions?discussions_q=category%3AGeneral"
+                                                  target="_blank"><i class="fas fa-comments fa-fw"></i> General</a>
+                </div>
+                <div class="col-md-6 col-lg-3"><a class="btn btn-block btn-secondary"
+                                                  href="https://github.com/matteobruni/tsparticles/discussions?discussions_q=category%3A%22Show+and+tell%22"
+                                                  target="_blank"><i class="fas fa-chalkboard-teacher fa-fw"></i> Show
+                    &amp; Tell</a></div>
+                <div class="col-md-6 col-lg-3"><a class="btn btn-block btn-secondary"
+                                                  href="https://github.com/matteobruni/tsparticles/discussions?discussions_q=category%3AQ%26A"
+                                                  target="_blank"><i class="fas fa-question-circle fa-fw"></i> Q/A -
+                    Help</a></div>
+                <div class="col-md-6 col-lg-3"><a class="btn btn-block btn-secondary"
+                                                  href="https://github.com/matteobruni/tsparticles/discussions?discussions_q=category%3AIdeas"
+                                                  target="_blank"><i class="far fa-lightbulb fa-fw"></i> New Ideas</a>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-4"><a class="btn btn-block btn-secondary"
+                                                                          href="https://github.com/matteobruni/tsparticles/discussions/new"
+                                                                          target="_blank"><i
+                        class="fas fa-plus-circle fa-fw"></i> Create New</a></div>
+            </div>
+            <div class="d-none d-md-block d-lg-block d-xl-block">
+                <div class="row">
+                    <div class="col text-center">
+                        <h2>Which framework are you using?</h2>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-6 col-lg-4 offset-lg-4 offset-md-3">
+                        <a href="https://github.com/matteobruni/tsparticles/" target="_blank"
+                           class="btn btn-block btn-lg btn-warning m-1"><i class="fab fa-js fa-fw"></i> No Framework</a>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <a href="https://github.com/matteobruni/tsparticles/tree/main/components/angular"
+                           target="_blank"
+                           class="btn btn-block btn-danger m-1"><i class="fab fa-angular fa-fw"></i>
+                            Angular</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://github.com/matteobruni/tsparticles/tree/main/components/react" target="_blank"
+                           class="btn btn-block btn-info m-1"><i class="fab fa-react fa-fw"></i>
+                            React</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://github.com/matteobruni/tsparticles/tree/main/components/vue" target="_blank"
+                           class="btn btn-block btn-success m-1"><i class="fab fa-vuejs fa-fw"></i> Vue 2.x</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://github.com/matteobruni/tsparticles/tree/main/components/vue3" target="_blank"
+                           class="btn btn-block btn-success m-1"><i class="fab fa-vuejs fa-fw"></i> Vue 3.x</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <a href="https://github.com/matteobruni/tsparticles/tree/main/components/inferno"
+                           target="_blank"
+                           class="btn btn-block btn-sm btn-light m-1">Inferno</a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="https://github.com/matteobruni/tsparticles/tree/main/components/jquery" target="_blank"
+                           class="btn btn-block btn-sm btn-light m-1">jQuery</a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="https://github.com/matteobruni/tsparticles/tree/main/components/preact" target="_blank"
+                           class="btn btn-block btn-sm btn-light m-1">Preact</a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="https://github.com/matteobruni/tsparticles/tree/main/components/svelte" target="_blank"
+                           class="btn btn-block btn-sm btn-light m-1">Svelte</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/js/fontawesome.min.js"
+        integrity="sha256-NP9NujdEzS5m4ZxvNqkcbxyHB0dTRy9hG13RwTVBGwo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/pathseg@1.2.0/pathseg.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"
+        integrity="sha256-ur/YlHMU96MxHEsy3fHGszZHas7NzH4RQlD4tDVvFhw=" crossorigin="anonymous"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@1.19.0/dist/tsparticles.min.js"
+        integrity="sha256-zhYFgz8XKJ6LG4PeTsCwpXK72xTwubN9wlY6IiLRIqc=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-basic@1.4.0/dist/tsparticles.preset.basic.min.js"
+        integrity="sha256-ZGBHteQ4bn2EUobo8fjUmLpHsQoPrkxajuUIWclyeKw=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/object-gui@1.0.11/dist/js/object-gui.min.js"
+        integrity="sha256-OZuddowXLKMeqh3QhEFcVRcrWjJbjQKUhUnYY/PWxro=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-editor@1.19.0/dist/tsparticles.editor.min.js"
+        integrity="sha256-b7PiYXXN6tFKQvSE6EJYkWYzuYH1v/TsNGFvM6oSkVo=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script type="text/javascript">
+    tsParticles.load("tsparticles", {
+        background: {
+            color: "#000"
+        },
+        fullScreen: {
+            enable: true
+        },
+        detectRetina: true,
+        fpsLimit: 60,
+        interactivity: {
+            detectsOn: "window",
+            events: {
+                onHover: {
+                    mode: "trail",
+                    enable: true
+                }
+            },
+            modes: {
+                trail: {
+                    delay: 0.005,
+                    quantity: 5,
+                    particles: {
+                        color: {
+                            value: "#ff0000",
+                            animation: {
+                                enable: true,
+                                speed: 400,
+                                sync: true
+                            }
+                        },
+                        collisions: {
+                            enable: false
+                        },
+                        links: {
+                            enable: false
+                        },
+                        move: {
+                            outMode: "destroy",
+                            speed: 5
+                        },
+                        size: {
+                            value: 5,
+                            animation: {
+                                enable: true,
+                                speed: 5,
+                                minimumValue: 1,
+                                sync: true,
+                                startValue: "min",
+                                destroy: "max"
+                            }
+                        }
+                    }
+                }
+            },
+            resize: true
+        },
+        motion: {
+            reduce: {
+                value: true
+            }
+        },
+        particles: {
+            color: {
+                animation: {
+                    enable: true,
+                    sync: false,
+                    speed: 50
+                },
+                value: "#f00"
+            },
+            links: {
+                color: "random",
+                enable: true
+            },
+            collisions: {
+                enable: true
+            },
+            move: {
+                enable: true
+            },
+            number: {
+                density: {
+                    enable: true
+                }
+            },
+            opacity: {
+                animation: {
+                    enable: true,
+                    minimumValue: 0.3,
+                    speed: 0.5
+                },
+                value: 0.8,
+                random: {
+                    enable: true,
+                    minimumValue: 0.3
+                }
+            },
+            size: {
+                animation: {
+                    enable: true,
+                    minimumValue: 1,
+                    speed: 3
+                },
+                value: 3,
+                random: {
+                    enable: true,
+                    minimumValue: 1
+                }
+            }
+        }
+    }).then((container) => {
+        showEditor(container).top().right().theme("neu-dark");
+
+        const editor = document.querySelector("#p_tsparticles_editor");
+
+        editor.classList.add("d-md-block");
+        editor.classList.add("d-none");
+    });
+</script>
+</body>
+
+</html>

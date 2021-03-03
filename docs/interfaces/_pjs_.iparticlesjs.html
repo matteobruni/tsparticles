@@ -1,0 +1,412 @@
+<!doctype html>
+<html class="particles no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IParticlesJS
+	| tsParticles - v1.19.2</title>
+	<meta name="description" content="Documentation for tsParticles - v1.19.2">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div id="tsparticles"></div>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json"
+				data-base="..">
+				<div class="field">
+					<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+					<input id="tsd-search-field" type="text" />
+				</div>
+				<ul class="results">
+					<li class="state loading">Preparing search index...</li>
+					<li class="state failure">The search index is not available</li>
+				</ul>
+				<a href="../index.html" class="title">tsParticles - v1.19.2</a>
+				<div class="tsd-links">
+					&emsp;<a href="https://particles.js.org" class="title">Official Website</a>
+					&emsp;<a href="https://github.com/matteobruni/tsparticles" class="title">Repository</a>
+				</div>
+			</div>
+			<div class="table-cell" id="tsd-widgets">
+				<div id="tsd-filter">
+					<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+					<div class="tsd-filter-group">
+						<div class="tsd-select" id="tsd-filter-visibility">
+							<span class="tsd-select-label">All</span>
+							<ul class="tsd-select-list">
+								<li data-value="public">Public</li>
+								<li data-value="protected">Public/Protected</li>
+								<li data-value="private" class="selected">All</li>
+							</ul>
+						</div>
+						<input type="checkbox" id="tsd-filter-inherited" checked />
+						<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						<input type="checkbox" id="tsd-filter-externals" checked />
+						<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						<input type="checkbox" id="tsd-filter-only-exported" />
+						<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						<input type="checkbox" id="tsd-animations" checked />
+						<label class="tsd-widget" for="tsd-animations">Animations</label>
+					</div>
+				</div>
+				<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_pjs_.html">pjs</a>
+				</li>
+				<li>
+					<a href="_pjs_.iparticlesjs.html">IParticlesJS</a>
+				</li>
+			</ul>
+			<h1>Interface IParticlesJS</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-3 col-menu col-menu-left menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="label pp-nav pp-group">
+						<span>Components</span>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/angular.html">Angular</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/react.html">React</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/vue2.html">Vue 2.x</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/vue3.html">Vue 3.x</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/svelte.html">Svelte</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/jquery.html">j<wbr>Query</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/preact.html">Preact</a>
+					</li>
+					<li class=" pp-nav pp-page">
+						<a href="../particles/Components/inferno.html">Inferno</a>
+					</li>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module tsd-is-external">
+						<a href="../modules/_pjs_.html">pjs</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-6 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="#migrating-from-particlesjs" id="migrating-from-particlesjs" style="color: inherit; text-decoration: none;">
+							<h1>Migrating from Particles.js</h1>
+						</a>
+						<p>tsParticles is fully compatible with Particles.js and the migration is really easy to do.</p>
+						<p>Let&#39;s checkout your possible HTML code.</p>
+						<a href="#simple-solution" id="simple-solution" style="color: inherit; text-decoration: none;">
+							<h2>Simple solution</h2>
+						</a>
+						<p>You should have something like the following code</p>
+						<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;particles.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+						<p>Well to migrate from particles.js to tsParticles all you have to do is replace that to this</p>
+						<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;tsparticles.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+						<p>If you have customized the css like this:</p>
+						<pre><code class="language-css"><span class="hljs-selector-class">.particles-js-canvas-element</span> {
+    <span class="hljs-comment">/* your awesome CSS code */</span>
+}
+</code></pre>
+						<p>You have to change it like this</p>
+						<pre><code class="language-css"><span class="hljs-selector-class">.tsparticles-canvas-element</span> {
+    <span class="hljs-comment">/* your awesome CSS code */</span>
+}
+</code></pre>
+						<p>And you&#39;re done. Easy isn&#39;t it?</p>
+						<a href="#advanced-solution" id="advanced-solution" style="color: inherit; text-decoration: none;">
+							<h2>Advanced solution</h2>
+						</a>
+						<p>Probably you noticed some warnings in the console. Well yes, it&#39;s really easy doing the migration but new features requires new configs and bug fixes can mess up some things.</p>
+						<p>If you&#39;re not familiar with Javascript don&#39;t worry, you can skip this part and keep the warnings, everything will work fine.</p>
+						<p>If you care about console warnings well you are in the right place.</p>
+						<p>The particlesJS identifier is now obsolete, well the library has a new name so it changed.</p>
+						<p>Now let&#39;s checkout the Javascript code, you should have something like this</p>
+						<pre><code class="language-javascript"><span class="hljs-comment">/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */</span>
+particlesJS.load(<span class="hljs-string">&#x27;particles-js&#x27;</span>, <span class="hljs-string">&#x27;assets/particles.json&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;callback - particles.js config loaded&#x27;</span>);
+});
+</code></pre>
+						<p>or something like this</p>
+						<pre><code class="language-javascript">particlesJS(<span class="hljs-string">&#x27;particles-js&#x27;</span>, { <span class="hljs-comment">/* your options here */</span> });
+</code></pre>
+						<p>All you have to do to use the new identifiers it replacing the function</p>
+						<p><code>particlesJS()</code> into <code>tsParticles.load()</code></p>
+						<p>or the function</p>
+						<p><code>particlesJS.load()</code> into <code>tsParticles.loadJSON()</code></p>
+						<p><strong>Warning here, the <code>loadJSON</code> doesn&#39;t have a third parameter, if you need a callback use the <code>then</code> function.</strong></p>
+						<p>Still really simple.</p>
+						<p>Let&#39;s convert the sample provided above to understand</p>
+						<pre><code class="language-javascript"><span class="hljs-comment">/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */</span>
+tsParticles.loadJSON(<span class="hljs-string">&#x27;particles-js&#x27;</span>, <span class="hljs-string">&#x27;assets/particles.json&#x27;</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">p</span>) </span>{
+  <span class="hljs-comment">// p is the loaded container, for using it later</span>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;callback - particles.js config loaded&#x27;</span>);
+});
+
+tsParticles.load(<span class="hljs-string">&#x27;particles-js&#x27;</span>, { <span class="hljs-comment">/* your options here */</span> });
+</code></pre>
+						<p>But probably you noticed that your warnings are still there, well the options are changed too but like the identifier this is not an issue.</p>
+						<a href="#transforming-options" id="transforming-options" style="color: inherit; text-decoration: none;">
+							<h2>Transforming Options</h2>
+						</a>
+						<p>Let&#39;s checkout the options warning. They suggest you to change the old property in the newer one.</p>
+						<p>The changed properties still continues to work, but they will be dropped probably for new features.</p>
+						<p>If you find a property with a <code>_</code> in the name, that property was renamed. We can take <code>line_linked</code> property as sample. It&#39;s renamed <code>lineLinked</code> now.</p>
+						<p>Boom. Another warning gone!</p>
+						<p>Checkout warnings for finding all other properties renamed.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IParticlesJS</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3 class="tsd-before-signature">Callable</h3>
+				<ul class="tsd-signatures tsd-kind-interface tsd-parent-kind-module tsd-is-external">
+					<li class="tsd-signature tsd-kind-icon">__call<span class="tsd-signature-symbol">(</span>tagId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/pjs.ts#L15">pjs.ts:15</a></li>
+							</ul>
+						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Loads the provided options to create a <a href="../classes/_core_container_.container.html">Container</a> object.</p>
+							</div>
+							<dl class="tsd-comment-tags">
+								<dt>deprecated</dt>
+								<dd><p>this method is obsolete, please use the new tsParticles.load</p>
+								</dd>
+							</dl>
+						</div>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>tagId: <span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>the particles container element id</p>
+								</div>
+							</li>
+							<li>
+								<h5>options: <a href="../modules/_types_recursivepartial_.html#recursivepartial" class="tsd-signature-type">RecursivePartial</a><span class="tsd-signature-symbol">&lt;</span><a href="_options_interfaces_ioptions_.ioptions.html" class="tsd-signature-type">IOptions</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>the options object to initialize the <a href="../classes/_core_container_.container.html">Container</a></p>
+								</div>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-external"><a href="_pjs_.iparticlesjs.html#load" class="tsd-kind-icon">load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-external"><a href="_pjs_.iparticlesjs.html#setonclickhandler" class="tsd-kind-icon">set<wbr>OnClick<wbr>Handler</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+					<a name="load" class="tsd-anchor"></a>
+					<h3>load</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span>tagId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, pathConfigJson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/pjs.ts#L32">pjs.ts:32</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Loads the provided json with a GET request.
+									The content will be used to create a <a href="../classes/_core_container_.container.html">Container</a> object.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd><p>this method is obsolete, please use the new tsParticles.loadJSON</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tagId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the particles container element id</p>
+									</div>
+								</li>
+								<li>
+									<h5>pathConfigJson: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the json path to use in the GET request</p>
+									</div>
+								</li>
+								<li>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>called after the <a href="../classes/_core_container_.container.html">Container</a> is loaded and it will be passed as a parameter</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>container: <a href="../classes/_core_container_.container.html" class="tsd-signature-type">Container</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+					<a name="setonclickhandler" class="tsd-anchor"></a>
+					<h3>set<wbr>OnClick<wbr>Handler</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>OnClick<wbr>Handler<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventListenerOrEventListenerObject</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/matteobruni/tsparticles/blob/8ab5a10c/core/main/src/pjs.ts#L39">pjs.ts:39</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds an additional click handler to all the loaded <a href="../classes/_core_container_.container.html">Container</a> objects.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd><p>this method is obsolete, please use the new tsParticles.setOnClickHandler</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <span class="tsd-signature-type">EventListenerOrEventListenerObject</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the function called after the click event is fired</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-3 col-menu col-menu-right menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-is-external">
+						<a href="_pjs_.iparticlesjs.html" class="tsd-kind-icon">IParticlesJS</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+								<a href="_pjs_.iparticlesjs.html#load" class="tsd-kind-icon">load</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-external">
+								<a href="_pjs_.iparticlesjs.html#setonclickhandler" class="tsd-kind-icon">set<wbr>OnClick<wbr>Handler</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-external">
+						<a href="../modules/_pjs_.html#initpjs" class="tsd-kind-icon">init<wbr>Pjs</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span
+				class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-type-alias"><span
+				class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-161253125-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

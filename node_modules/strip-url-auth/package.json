@@ -1,0 +1,38 @@
+{
+  "name": "strip-url-auth",
+  "version": "1.0.1",
+  "description": "Strip the authentication part of a URL",
+  "license": "MIT",
+  "repository": "sindresorhus/strip-url-auth",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "string",
+    "str",
+    "url",
+    "uri",
+    "address",
+    "auth",
+    "authentication",
+    "user",
+    "username",
+    "pass",
+    "password",
+    "basic"
+  ],
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}

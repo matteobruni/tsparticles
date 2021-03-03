@@ -1,0 +1,48 @@
+{
+  "name": "humanize-url",
+  "version": "1.0.1",
+  "description": "Humanize a URL: http://sindresorhus.com → sindresorhus.com",
+  "license": "MIT",
+  "repository": "sindresorhus/humanize-url",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "url",
+    "uri",
+    "address",
+    "string",
+    "str",
+    "normalize",
+    "normalise",
+    "normalization",
+    "normalisation",
+    "querystring",
+    "unicode",
+    "humanize",
+    "humanization",
+    "simple",
+    "simplify",
+    "human",
+    "pretty",
+    "prettify"
+  ],
+  "dependencies": {
+    "normalize-url": "^1.0.0",
+    "strip-url-auth": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
